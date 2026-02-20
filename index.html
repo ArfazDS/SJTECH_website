@@ -767,21 +767,22 @@
                 sysLoader.style.opacity = '0';
                 sysLoader.style.visibility = 'hidden';
                 canvas.style.opacity = '1';
-                initThreeJSElectricity();
+                initThreeJSSkyThunder();
             }, 2800);
         });
 
-        // THREE.JS RAW ELECTRICITY GRID (No Thunder/Clouds)
-        function initThreeJSElectricity() {
+        // THREE.JS THUNDER WAVES IN SKY VISUALIZATION
+        function initThreeJSSkyThunder() {
             const container = document.getElementById('grid-canvas');
             if(!container || container.children.length > 0) return; 
 
             const scene = new THREE.Scene();
-            // Let CSS handle the background color to support light/dark blueprints
             scene.background = null; 
+            scene.fog = new THREE.FogExp2(0x010409, 0.0005);
 
-            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 4000);
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 5000);
             camera.position.z = 1000;
+            camera.position.y = 200; // Looking up slightly at the sky
 
             const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
@@ -793,55 +794,128 @@
 
             const isDarkInit = document.documentElement.classList.contains('dark');
 
-            // --- ENERGY NODES ---
-            const nodeCount = 200; // Increased for denser electrical web
-            const nodePositions = new Float32Array(nodeCount * 3);
-            const nodeVelocities = [];
-            const r = 2000;
+            // --- STORM CLOUDS ---
+            // Create a procedural soft gradient texture for clouds
+            const canvasText = document.createElement('canvas');
+            canvasText.width = 128; canvasText.height = 128;
+            const ctx = canvasText.getContext('2d');
+            const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+            gradient.addColorStop(0, 'rgba(255,255,255,1)');
+            gradient.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0,0,128,128);
+            const cloudTexture = new THREE.CanvasTexture(canvasText);
 
-            for (let i = 0; i < nodeCount; i++) {
-                nodePositions[i * 3] = (Math.random() - 0.5) * r;
-                nodePositions[i * 3 + 1] = (Math.random() - 0.5) * r;
-                nodePositions[i * 3 + 2] = (Math.random() - 0.5) * r;
-                nodeVelocities.push({
-                    x: (Math.random() - 0.5) * 5,
-                    y: (Math.random() - 0.5) * 5,
-                    z: (Math.random() - 0.5) * 5
+            const cloudCount = 100;
+            const cloudPos = new Float32Array(cloudCount * 3);
+            for(let i=0; i<cloudCount; i++) {
+                // Spread clouds widely across the top of the sky
+                cloudPos[i*3] = (Math.random() - 0.5) * 4000;
+                cloudPos[i*3+1] = 600 + Math.random() * 800; // High up
+                cloudPos[i*3+2] = (Math.random() - 0.5) * 3000 - 500;
+            }
+            const cloudGeo = new THREE.BufferGeometry();
+            cloudGeo.setAttribute('position', new THREE.BufferAttribute(cloudPos, 3));
+            
+            const cloudMat = new THREE.PointsMaterial({
+                size: 1500,
+                map: cloudTexture,
+                transparent: true,
+                opacity: isDarkInit ? 0.03 : 0.08,
+                color: isDarkInit ? 0x00e5ff : 0x475569, // Cyan in dark, slate in light
+                depthWrite: false,
+                blending: isDarkInit ? THREE.AdditiveBlending : THREE.NormalBlending
+            });
+            const clouds = new THREE.Points(cloudGeo, cloudMat);
+            group.add(clouds);
+
+            // --- LIGHTNING GENERATOR ---
+            const activeLightnings = [];
+            
+            function generateLightningBranch(startVec, directionVec, length, depth, maxDepth, positionsArray) {
+                if(depth > maxDepth) return;
+                
+                let currentPos = startVec.clone();
+                // Number of jagged segments for this branch
+                let segments = Math.floor(length / 30) + 4; 
+                
+                for(let i=0; i<segments; i++) {
+                    // Move forward in direction
+                    let nextPos = currentPos.clone().add(directionVec.clone().multiplyScalar(length / segments));
+                    
+                    // Add erratic jitter (spider web effect)
+                    nextPos.x += (Math.random() - 0.5) * 60;
+                    nextPos.y += (Math.random() - 0.5) * 60;
+                    nextPos.z += (Math.random() - 0.5) * 60;
+                    
+                    positionsArray.push(currentPos.x, currentPos.y, currentPos.z);
+                    positionsArray.push(nextPos.x, nextPos.y, nextPos.z);
+                    
+                    // Fork / Branching logic - INCREASED THRESHOLD FOR LESS BUNCHING
+                    if(Math.random() > 0.88 && depth < maxDepth) {
+                        // Create a random angular deviation for the fork
+                        let angleX = (Math.random() - 0.5) * 1.5;
+                        let angleY = (Math.random() - 0.5) * 1.5;
+                        let angleZ = (Math.random() - 0.5) * 1.5;
+                        let forkDir = directionVec.clone().applyEuler(new THREE.Euler(angleX, angleY, angleZ)).normalize();
+                        
+                        generateLightningBranch(nextPos, forkDir, length * 0.6, depth + 1, maxDepth, positionsArray);
+                    }
+                    
+                    currentPos = nextPos;
+                }
+            }
+
+            function triggerLightning() {
+                const isDark = document.documentElement.classList.contains('dark');
+                const positions = [];
+                
+                // Random starting point high in the clouds
+                const startX = (Math.random() - 0.5) * 3000;
+                const startY = 800 + Math.random() * 400;
+                const startZ = (Math.random() - 0.5) * 2000 - 500;
+                const startPos = new THREE.Vector3(startX, startY, startZ);
+                
+                // Main strike direction (horizontal across sky or downwards)
+                const dirX = (Math.random() - 0.5) * 2.5;
+                const dirY = (Math.random() - 0.5) - 0.5; // Bias downwards
+                const dirZ = (Math.random() - 0.5) * 2;
+                const direction = new THREE.Vector3(dirX, dirY, dirZ).normalize();
+                
+                // Build the geometry arrays recursively
+                generateLightningBranch(startPos, direction, 600 + Math.random() * 800, 0, 4, positions);
+                
+                const geo = new THREE.BufferGeometry();
+                geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                
+                const mat = new THREE.LineBasicMaterial({
+                    color: isDark ? 0xffffff : 0x0ea5e9, // White in dark, sky blue in light
+                    transparent: true,
+                    opacity: 1.0,
+                    blending: isDark ? THREE.AdditiveBlending : THREE.NormalBlending
+                });
+                
+                const line = new THREE.LineSegments(geo, mat);
+                group.add(line);
+                
+                activeLightnings.push({
+                    mesh: line,
+                    life: 1.0,
+                    // SLOWER DECAY RATE SO IT LINGERS LONGER
+                    decayRate: 0.008 + Math.random() * 0.015
                 });
             }
 
-            const nodeGeo = new THREE.BufferGeometry();
-            nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
-            
-            const nodeMat = new THREE.PointsMaterial({
-                color: isDarkInit ? 0x00e5ff : 0x0284c7, 
-                size: 6, 
-                transparent: true, 
-                opacity: 0.8,
-                blending: isDarkInit ? THREE.AdditiveBlending : THREE.NormalBlending
-            });
-            const nodes = new THREE.Points(nodeGeo, nodeMat);
-            group.add(nodes);
+            let flashIntensity = 0;
 
-            // --- JAGGED ELECTRICAL ARCS ---
-            const maxBolts = 300;
-            const segments = 6; // Segments per line to create the jagged effect
-            const arcPositions = new Float32Array(maxBolts * segments * 6);
-            
-            const arcGeo = new THREE.BufferGeometry();
-            arcGeo.setAttribute('position', new THREE.BufferAttribute(arcPositions, 3));
-            
-            const arcMat = new THREE.LineBasicMaterial({
-                color: isDarkInit ? 0xffffff : 0x0369a1,
-                transparent: true, 
-                opacity: 0.5, 
-                linewidth: 1,
-                blending: isDarkInit ? THREE.AdditiveBlending : THREE.NormalBlending
+            // Handle Theme Changes Live
+            window.addEventListener('themeToggled', (e) => {
+                const isDark = e.detail.isDark;
+                cloudMat.color.setHex(isDark ? 0x00e5ff : 0x475569);
+                cloudMat.opacity = isDark ? 0.03 : 0.08;
+                cloudMat.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+                scene.fog.color.setHex(isDark ? 0x010409 : 0xf8fafc);
             });
-            const arcs = new THREE.LineSegments(arcGeo, arcMat);
-            group.add(arcs);
-
-            const minDistance = 350;
 
             let mouseX = 0, mouseY = 0;
             const windowHalfX = window.innerWidth / 2;
@@ -852,87 +926,61 @@
                 mouseY = (e.clientY - windowHalfY) * 0.1;
             });
 
-            // Handle Theme Changes Live
-            window.addEventListener('themeToggled', (e) => {
-                if(e.detail.isDark) {
-                    nodeMat.color.setHex(0x00e5ff); // Cyan
-                    nodeMat.blending = THREE.AdditiveBlending;
-                    arcMat.color.setHex(0xffffff); // White arcs
-                    arcMat.blending = THREE.AdditiveBlending;
-                } else {
-                    nodeMat.color.setHex(0x0284c7); // Dark Blue
-                    nodeMat.blending = THREE.NormalBlending;
-                    arcMat.color.setHex(0x0369a1); // Deeper Blue arcs
-                    arcMat.blending = THREE.NormalBlending;
-                }
-            });
-
             function animate() {
                 requestAnimationFrame(animate);
 
-                let boltIdx = 0;
+                // Sky Storm Mechanics: Random lightning strikes
+                // REDUCED FREQUENCY OF STRIKES
+                if(Math.random() > 0.993 && flashIntensity < 0.1) {
+                    triggerLightning();
+                    // REDUCED MULTI-STRIKE CHANCE AND ADDED DELAY
+                    if(Math.random() > 0.8) setTimeout(triggerLightning, 300);
+                    if(Math.random() > 0.95) setTimeout(triggerLightning, 600);
+                    
+                    flashIntensity = 0.8; // Trigger global thunder flash (slightly dimmer)
+                }
 
-                for (let i = 0; i < nodeCount; i++) {
-                    // Erratic movement
-                    nodePositions[i * 3] += nodeVelocities[i].x + (Math.random() - 0.5) * 4;
-                    nodePositions[i * 3 + 1] += nodeVelocities[i].y + (Math.random() - 0.5) * 4;
-                    nodePositions[i * 3 + 2] += nodeVelocities[i].z + (Math.random() - 0.5) * 4;
-
-                    // Bounce off bounds
-                    if (Math.abs(nodePositions[i * 3]) > r/2) nodeVelocities[i].x *= -1;
-                    if (Math.abs(nodePositions[i * 3 + 1]) > r/2) nodeVelocities[i].y *= -1;
-                    if (Math.abs(nodePositions[i * 3 + 2]) > r/2) nodeVelocities[i].z *= -1;
-
-                    // Compute Arcs
-                    for (let j = i + 1; j < nodeCount; j++) {
-                        const dx = nodePositions[i * 3] - nodePositions[j * 3];
-                        const dy = nodePositions[i * 3 + 1] - nodePositions[j * 3 + 1];
-                        const dz = nodePositions[i * 3 + 2] - nodePositions[j * 3 + 2];
-                        const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
-
-                        if (dist < minDistance && boltIdx < maxBolts) {
-                            // Crackle effect - violently flicker the lines
-                            if (Math.random() > 0.3) {
-                                const pA = new THREE.Vector3(nodePositions[i*3], nodePositions[i*3+1], nodePositions[i*3+2]);
-                                const pB = new THREE.Vector3(nodePositions[j*3], nodePositions[j*3+1], nodePositions[j*3+2]);
-                                const stepVec = new THREE.Vector3().subVectors(pB, pA).divideScalar(segments);
-
-                                let currP = pA.clone();
-                                for (let s = 0; s < segments; s++) {
-                                    let nextP = currP.clone().add(stepVec);
-                                    
-                                    // Jitter interior points to make it jagged like electricity
-                                    if (s < segments - 1) {
-                                        nextP.x += (Math.random() - 0.5) * 40;
-                                        nextP.y += (Math.random() - 0.5) * 40;
-                                        nextP.z += (Math.random() - 0.5) * 40;
-                                    }
-
-                                    const idx = (boltIdx * segments + s) * 6;
-                                    arcPositions[idx] = currP.x;
-                                    arcPositions[idx+1] = currP.y;
-                                    arcPositions[idx+2] = currP.z;
-                                    arcPositions[idx+3] = nextP.x;
-                                    arcPositions[idx+4] = nextP.y;
-                                    arcPositions[idx+5] = nextP.z;
-
-                                    currP = nextP;
-                                }
-                                boltIdx++;
-                            }
-                        }
+                // Update active lightnings
+                for(let i = activeLightnings.length - 1; i >= 0; i--) {
+                    let l = activeLightnings[i];
+                    l.life -= l.decayRate;
+                    
+                    // Flicker effect before dying
+                    l.mesh.material.opacity = l.life * (Math.random() > 0.2 ? 1 : 0.2);
+                    
+                    if(l.life <= 0) {
+                        group.remove(l.mesh);
+                        l.mesh.geometry.dispose();
+                        l.mesh.material.dispose();
+                        activeLightnings.splice(i, 1);
                     }
                 }
 
-                nodes.geometry.attributes.position.needsUpdate = true;
-                arcs.geometry.attributes.position.needsUpdate = true;
-                arcs.geometry.setDrawRange(0, boltIdx * segments * 2);
+                // Global Thunder Flash Decay - SLOWED DOWN FLASH FADE
+                if(flashIntensity > 0) {
+                    flashIntensity = Math.max(0, flashIntensity - 0.015);
+                    const isDark = document.documentElement.classList.contains('dark');
+                    // Flash the clouds
+                    cloudMat.opacity = (isDark ? 0.03 : 0.08) + (flashIntensity * 0.15);
+                    
+                    // Flash background
+                    if(isDark) {
+                        scene.background = new THREE.Color().setRGB(
+                            0.01 + flashIntensity * 0.1, 
+                            0.02 + flashIntensity * 0.3, 
+                            0.04 + flashIntensity * 0.4
+                        );
+                    } else {
+                        scene.background = null; // Let CSS blueprint handle light mode
+                    }
+                }
 
-                group.rotation.y += 0.001;
-                group.rotation.x += 0.0005;
+                // Slowly rotate the sky dome
+                group.rotation.y += 0.0005;
 
+                // Subtle parallax based on mouse
                 camera.position.x += (mouseX - camera.position.x) * 0.05;
-                camera.position.y += (-mouseY - camera.position.y) * 0.05;
+                camera.position.y += (-mouseY + 200 - camera.position.y) * 0.05; // Offset Y to keep looking up
                 camera.lookAt(scene.position);
 
                 renderer.render(scene, camera);
