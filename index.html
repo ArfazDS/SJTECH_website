@@ -14,6 +14,72 @@
         }
     </script>
     
+    <!-- SEO JSON-LD Schema: Software Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SJTech Solutions - EIIIS & EIIP",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cloud, Mobile",
+      "description": "Proprietary AI & ML SaaS products for enterprise loss reduction, vigilance checking, and revenue enhancement for Electricity Distribution Utilities (DISCOMs).",
+      "provider": {
+        "@type": "Organization",
+        "name": "SJTECH SOLUTIONS PVT. LTD.",
+        "url": "https://sjtechsolution.com",
+        "logo": "https://sjtechsolution.com/images/logo.svg",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "158, Zone-I, M. P. Nagar",
+            "addressLocality": "Bhopal",
+            "addressRegion": "Madhya Pradesh",
+            "postalCode": "462011",
+            "addressCountry": "IN"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "5900 Balcones Drive STE 100",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "postalCode": "78731",
+            "addressCountry": "US"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- SEO JSON-LD Schema: FAQ Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How does AI reduce AT&C losses in power grids?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI reduces AT&C losses by analyzing smart meter data in real-time, predicting localized energy theft, and identifying technical inefficiencies via Digital Twin simulations without requiring new hardware."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the EIIP corporate energy solution?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EIIP is an AI-driven SaaS platform that audits organizational energy usage in real-time, identifying wasteful patterns and providing actionable strategies to significantly reduce corporate utility billing."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do I need to install new smart meters for EIIIS to work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Our architecture is hardware agnostic. It integrates flawlessly with legacy traditional meters, digital meters, AMR, and modern smart-metering infrastructures."
+        }
+      }]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +114,10 @@
                         scrollTicker: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
+                        },
+                        laserScan: {
+                            '0%': { top: '-10%' },
+                            '100%': { top: '110%' }
                         }
                     }
                 }
@@ -87,36 +157,51 @@
             z-index: -10; opacity: 0; transition: opacity 2s ease; pointer-events: none;
         }
 
-        /* Energy Cursor */
+        /* Energy Cursor - Upgraded to Lightning Bolt */
         #energy-cursor {
-            position: fixed; top: 0; left: 0; width: 8px; height: 8px;
-            background: #00e5ff; border-radius: 50%; pointer-events: none; z-index: 9999;
+            position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 15px 4px rgba(0, 229, 255, 0.8);
-            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+            color: #00e5ff;
+            filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.8));
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         html:not(.dark) #energy-cursor {
-            background: #0284c7; box-shadow: 0 0 15px 4px rgba(2, 132, 199, 0.6);
+            color: #0284c7; filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.8));
         }
 
         #energy-cursor-ring {
             position: fixed; top: 0; left: 0; width: 40px; height: 40px;
             border: 1px solid rgba(0, 229, 255, 0.5); border-radius: 50%; pointer-events: none; z-index: 9998;
             transform: translate(-50%, -50%); transition: transform 0.1s ease-out, width 0.3s, height 0.3s;
+            mix-blend-mode: difference;
         }
         html:not(.dark) #energy-cursor-ring {
             border-color: rgba(2, 132, 199, 0.5);
         }
 
-        body.hovering #energy-cursor { width: 0; height: 0; }
+        body.hovering #energy-cursor { transform: translate(-50%, -50%) scale(1.4) rotate(15deg); }
         body.hovering #energy-cursor-ring {
             width: 60px; height: 60px; border-width: 2px; border-color: #00e5ff;
             box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.5), 0 0 15px rgba(0, 229, 255, 0.5);
-            background: rgba(0, 229, 255, 0.1); backdrop-filter: blur(2px);
+            background: transparent;
         }
         html:not(.dark) body.hovering #energy-cursor-ring {
             border-color: #0284c7; box-shadow: inset 0 0 10px rgba(2, 132, 199, 0.3), 0 0 15px rgba(2, 132, 199, 0.3);
-            background: rgba(2, 132, 199, 0.05);
+            background: transparent;
+        }
+
+        /* Electricity Trail Sparks */
+        .cursor-spark {
+            position: fixed; width: 3px; height: 3px; background: #00e5ff; border-radius: 50%;
+            pointer-events: none; z-index: 9997; transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px #00e5ff;
+            animation: spark-fade 0.4s ease-out forwards;
+        }
+        html:not(.dark) .cursor-spark { background: #0284c7; box-shadow: 0 0 8px #0284c7; }
+        @keyframes spark-fade {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1) translate(0, 0); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0) translate(calc(30px * var(--rx)), calc(30px * var(--ry))); }
         }
 
         /* Glass Panels with Energy Borders */
@@ -149,6 +234,19 @@
         html:not(.dark) .glass-panel:hover {
             border-color: rgba(14, 165, 233, 0.5);
             box-shadow: 0 10px 40px rgba(14, 165, 233, 0.15);
+        }
+
+        /* Laser Scan Animation for Logs */
+        .laser-scan {
+            position: absolute; top: -10%; left: 0; width: 100%; height: 2px;
+            background: rgba(0, 229, 255, 0.8); box-shadow: 0 0 15px 2px rgba(0, 229, 255, 0.6);
+            opacity: 0; pointer-events: none; z-index: 10;
+        }
+        html:not(.dark) .laser-scan {
+            background: rgba(2, 132, 199, 0.8); box-shadow: 0 0 15px 2px rgba(2, 132, 199, 0.6);
+        }
+        .group:hover .laser-scan {
+            animation: laserScan 2s linear infinite; opacity: 1;
         }
 
         /* Glowing Text */
@@ -192,7 +290,9 @@
 <body class="antialiased selection:bg-energy-core/30 text-slate-900 dark:text-slate-100 transition-colors duration-500">
 
     <!-- Energy Cursors -->
-    <div id="energy-cursor"></div>
+    <div id="energy-cursor">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 -ml-1 -mt-1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+    </div>
     <div id="energy-cursor-ring"></div>
 
     <!-- System Loader -->
@@ -204,7 +304,7 @@
             </svg>
             <div class="text-center z-10">
                 <div class="text-xs font-mono text-sky-600 dark:text-energy-core mb-2 tracking-[0.3em]">CONNECTING TO</div>
-                <div class="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-widest" id="loader-status">SMART GRID</div>
+                <div class="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-widest" id="loader-status">SJ TECH SOLUTIONS</div>
                 <div class="text-xs font-mono text-slate-500 mt-2" id="loader-log">Loading AI Models...</div>
             </div>
         </div>
@@ -245,10 +345,12 @@
                     <span class="font-display font-bold text-xl tracking-widest text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors hidden sm:block">SJTECH</span>
                 </a>
                 
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
                     <a href="#systems" class="text-xs font-mono font-bold tracking-widest text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-energy-core transition-colors hover-trigger uppercase">Systems</a>
                     <a href="#architecture" class="text-xs font-mono font-bold tracking-widest text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-energy-core transition-colors hover-trigger uppercase">Architecture</a>
                     <a href="#deployments" class="text-xs font-mono font-bold tracking-widest text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-energy-core transition-colors hover-trigger uppercase">Deployments</a>
+                    <a href="#intelligence" class="text-xs font-mono font-bold tracking-widest text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-energy-core transition-colors hover-trigger uppercase">Logs</a>
+                    <a href="#media" class="text-xs font-mono font-bold tracking-widest text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-energy-core transition-colors hover-trigger uppercase">Media</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -279,6 +381,8 @@
             <a href="#systems" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">System Modules</a>
             <a href="#architecture" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">Architecture</a>
             <a href="#deployments" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">Deployments</a>
+            <a href="#intelligence" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">Intelligence Logs</a>
+            <a href="#media" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">Media Center</a>
             <a href="#contact" class="mobile-link text-slate-900 dark:text-white hover:text-sky-600 dark:hover:text-energy-core hover:scale-110 transition-all">Establish Uplink</a>
         </div>
     </div>
@@ -508,6 +612,179 @@
         </div>
     </section>
 
+    <!-- Intelligence Logs (SEO Knowledge Base) -->
+    <section id="intelligence" class="py-24 relative z-10 bg-slate-50/50 dark:bg-[#010409]/80 border-t border-slate-200 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 reveal-node">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold uppercase tracking-tight text-slate-900 dark:text-white mb-2"><span class="text-sky-600 dark:text-energy-core">Intelligence</span> Logs</h2>
+                    <p class="font-mono text-slate-500 dark:text-slate-400 text-sm tracking-wider uppercase">Strategic Data & Industry Insights</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Log Card 1 -->
+                <div class="glass-panel p-8 hover-trigger group reveal-node relative overflow-hidden flex flex-col justify-between min-h-[250px]">
+                    <div class="laser-scan"></div>
+                    <div>
+                        <span class="inline-block font-mono text-[10px] text-sky-600 dark:text-energy-core border border-sky-300 dark:border-energy-core/30 px-2 py-1 mb-4 bg-sky-50 dark:bg-energy-core/5">HOME_ENERGY</span>
+                        <h4 class="font-display text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3 group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">Home Energy Efficiency Guide</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Details affordable upgrades like heat pumps, smart zoning, insulation, and LEDs to cut bills and emissions in 2026 homes.</p>
+                    </div>
+                    <a href="https://www.theenvironmentalblog.org/2025/12/how-to-make-your-home-more-energy-efficient-in-2026/" target="_blank" rel="noopener noreferrer" class="mt-8 text-left font-mono text-xs font-bold text-sky-700 dark:text-energy-core tracking-widest hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-2">[ ACCESS DATA ] <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                </div>
+
+                <!-- Log Card 2 -->
+                <div class="glass-panel p-8 hover-trigger group reveal-node relative overflow-hidden flex flex-col justify-between min-h-[250px]" style="transition-delay: 0.1s;">
+                    <div class="laser-scan"></div>
+                    <div>
+                        <span class="inline-block font-mono text-[10px] text-sky-600 dark:text-energy-core border border-sky-300 dark:border-energy-core/30 px-2 py-1 mb-4 bg-sky-50 dark:bg-energy-core/5">SAAS_ECO</span>
+                        <h4 class="font-display text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3 group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">SaaS for Eco Footprint Reduction</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Explores 20+ ways SMEs use SaaS for energy management, remote work, and renewables tracking to lower carbon by 20%+.</p>
+                    </div>
+                    <a href="https://www.ecohedge.com/blog/reduce-eco-footprint-with-efficient-saas-solutions/" target="_blank" rel="noopener noreferrer" class="mt-8 text-left font-mono text-xs font-bold text-sky-700 dark:text-energy-core tracking-widest hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-2">[ ACCESS DATA ] <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                </div>
+
+                <!-- Log Card 3 -->
+                <div class="glass-panel p-8 hover-trigger group reveal-node relative overflow-hidden flex flex-col justify-between min-h-[250px]" style="transition-delay: 0.2s;">
+                    <div class="laser-scan"></div>
+                    <div>
+                        <span class="inline-block font-mono text-[10px] text-sky-600 dark:text-energy-core border border-sky-300 dark:border-energy-core/30 px-2 py-1 mb-4 bg-sky-50 dark:bg-energy-core/5">ESAAS_MODEL</span>
+                        <h4 class="font-display text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3 group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">ESaaS Business Model</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Explains Energy Savings as a Service, outsourcing efficiency measures without upfront costs for decarbonization.</p>
+                    </div>
+                    <a href="https://www.engieimpact.com/insights/business-energy-efficiency" target="_blank" rel="noopener noreferrer" class="mt-8 text-left font-mono text-xs font-bold text-sky-700 dark:text-energy-core tracking-widest hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-2">[ ACCESS DATA ] <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                </div>
+
+                <!-- Log Card 4 -->
+                <div class="glass-panel p-8 hover-trigger group reveal-node relative overflow-hidden flex flex-col justify-between min-h-[250px]" style="transition-delay: 0.3s;">
+                    <div class="laser-scan"></div>
+                    <div>
+                        <span class="inline-block font-mono text-[10px] text-sky-600 dark:text-energy-core border border-sky-300 dark:border-energy-core/30 px-2 py-1 mb-4 bg-sky-50 dark:bg-energy-core/5">INDUSTRY_OUTLOOK</span>
+                        <h4 class="font-display text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3 group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">Renewable Energy Outlook 2026</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Deloitte's 2026 trends on growth, risks, and strategies in renewables and efficiency.</p>
+                    </div>
+                    <a href="https://www.deloitte.com/us/en/insights/industry/renewable-energy/renewable-energy-industry-outlook.html" target="_blank" rel="noopener noreferrer" class="mt-8 text-left font-mono text-xs font-bold text-sky-700 dark:text-energy-core tracking-widest hover:text-slate-900 dark:hover:text-white transition-colors inline-flex items-center gap-2">[ ACCESS DATA ] <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media / Video Transmissions Section -->
+    <section id="media" class="py-24 relative z-10 bg-slate-100 dark:bg-[#030b14] border-y border-slate-300 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-node">
+                <h2 class="font-display text-4xl md:text-5xl font-bold uppercase tracking-tight text-slate-900 dark:text-white mb-2">Video <span class="text-outline text-sky-600 dark:text-energy-core">Transmissions</span></h2>
+                <p class="font-mono text-slate-500 dark:text-slate-400 text-sm tracking-[0.2em] uppercase">Visual Intelligence & Briefings</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="glass-panel p-4 hover-trigger group reveal-node flex flex-col">
+                    <div class="relative w-full pb-[56.25%] mb-4 overflow-hidden border border-white/10 rounded-sm">
+                        <a href="https://www.youtube.com/watch?v=S0XoBy3qGYc" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-black/10 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(220,38,38,0.7)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-6 h-6 ml-1"></i>
+                            </div>
+                        </a>
+                        <img src="https://img.youtube.com/vi/S0XoBy3qGYc/maxresdefault.jpg" alt="ESaaS Overview" class="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="mt-2 flex-grow">
+                        <h4 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-wide group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">ESaaS Overview</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400">Covers Energy Saving as a Service for efficiency gains and sustainable scaling.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="glass-panel p-4 hover-trigger group reveal-node flex flex-col" style="transition-delay: 0.1s;">
+                    <div class="relative w-full pb-[56.25%] mb-4 overflow-hidden border border-white/10 rounded-sm">
+                        <a href="https://www.youtube.com/watch?v=UOoFYXQax68" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-black/10 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(220,38,38,0.7)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-6 h-6 ml-1"></i>
+                            </div>
+                        </a>
+                        <img src="https://img.youtube.com/vi/UOoFYXQax68/maxresdefault.jpg" alt="Efficiency Basics" class="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="mt-2 flex-grow">
+                        <h4 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-wide group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">Efficiency Basics</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400">Explains the core differences between energy conservation and efficiency to fight climate change.</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="glass-panel p-4 hover-trigger group reveal-node flex flex-col" style="transition-delay: 0.2s;">
+                    <div class="relative w-full pb-[56.25%] mb-4 overflow-hidden border border-white/10 rounded-sm">
+                        <a href="https://www.youtube.com/watch?v=lX7c8hCGD90" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 group-hover:bg-black/10 transition-colors">
+                            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(220,38,38,0.7)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-6 h-6 ml-1"></i>
+                            </div>
+                        </a>
+                        <img src="https://img.youtube.com/vi/lX7c8hCGD90/maxresdefault.jpg" alt="Conservation Priority" class="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="mt-2 flex-grow">
+                        <h4 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-wide group-hover:text-sky-600 dark:group-hover:text-energy-core transition-colors">Conservation Priority</h4>
+                        <p class="font-sans text-sm text-slate-600 dark:text-slate-400">Highlights highly practical and actionable steps for enterprise energy savings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Terminal Section -->
+    <section id="faq" class="py-24 relative z-10 bg-slate-100 dark:bg-slate-900/50 border-y border-slate-300 dark:border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal-node">
+            
+            <!-- Terminal UI Container -->
+            <div class="bg-white dark:bg-[#010409] border border-sky-300 dark:border-energy-core/30 rounded-lg overflow-hidden font-mono shadow-lg dark:shadow-[0_0_30px_rgba(0,229,255,0.1)] hover-trigger">
+                <!-- Terminal Header -->
+                <div class="bg-sky-100 dark:bg-energy-core/10 px-4 py-3 flex gap-2 items-center border-b border-sky-300 dark:border-energy-core/20">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-4 text-xs text-sky-700 dark:text-energy-core tracking-widest">FAQ_SYS_TERMINAL.exe</span>
+                </div>
+                
+                <!-- Terminal Body (Accordion) -->
+                <div class="p-6 space-y-4 text-sm">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="border border-sky-200 dark:border-white/10 p-4 cursor-pointer hover:border-sky-500 dark:hover:border-energy-core/50 transition-colors bg-sky-50/50 dark:bg-transparent" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center font-bold text-slate-900 dark:text-white select-none">
+                            <span class="pr-4">> QUERY: How does AI reduce AT&C losses in power grids?</span>
+                            <span class="text-sky-600 dark:text-energy-core text-xl leading-none faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer hidden mt-4 text-xs md:text-sm text-slate-600 dark:text-slate-400 border-l-2 border-sky-500 dark:border-energy-core pl-4">
+                            <span class="text-sky-600 dark:text-energy-core">> SYSTEM RESPONSE:</span> AI reduces AT&C losses by analyzing smart meter data in real-time, predicting localized energy theft, and identifying technical inefficiencies via Digital Twin simulations without requiring new hardware.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="border border-sky-200 dark:border-white/10 p-4 cursor-pointer hover:border-sky-500 dark:hover:border-energy-core/50 transition-colors bg-sky-50/50 dark:bg-transparent" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center font-bold text-slate-900 dark:text-white select-none">
+                            <span class="pr-4">> QUERY: What is the EIIP corporate energy solution?</span>
+                            <span class="text-sky-600 dark:text-energy-core text-xl leading-none faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer hidden mt-4 text-xs md:text-sm text-slate-600 dark:text-slate-400 border-l-2 border-sky-500 dark:border-energy-core pl-4">
+                            <span class="text-sky-600 dark:text-energy-core">> SYSTEM RESPONSE:</span> EIIP is an AI-driven SaaS platform that audits organizational energy usage in real-time, identifying wasteful patterns and providing actionable strategies to significantly reduce corporate utility billing.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="border border-sky-200 dark:border-white/10 p-4 cursor-pointer hover:border-sky-500 dark:hover:border-energy-core/50 transition-colors bg-sky-50/50 dark:bg-transparent" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center font-bold text-slate-900 dark:text-white select-none">
+                            <span class="pr-4">> QUERY: Do I need to install new smart meters for EIIIS to work?</span>
+                            <span class="text-sky-600 dark:text-energy-core text-xl leading-none faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer hidden mt-4 text-xs md:text-sm text-slate-600 dark:text-slate-400 border-l-2 border-sky-500 dark:border-energy-core pl-4">
+                            <span class="text-sky-600 dark:text-energy-core">> SYSTEM RESPONSE:</span> No. Our architecture is completely hardware agnostic. It integrates flawlessly with legacy traditional meters, digital meters, AMR, and modern smart-metering infrastructures.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Team Section - Neural Accordion -->
     <section id="company" class="py-24 relative z-10 bg-slate-100 dark:bg-energy-dark border-t border-slate-200 dark:border-energy-core/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -674,7 +951,7 @@
         lucide.createIcons();
         document.getElementById('copyright-year').innerHTML = `© ${new Date().getFullYear()} SJTECH SOLUTIONS PVT. LTD. ALL SYSTEMS NOMINAL.`;
 
-        // Interactive Custom Cursor
+        // Interactive Custom Cursor (Lightning & Sparks)
         const cursor = document.getElementById('energy-cursor');
         const cursorRing = document.getElementById('energy-cursor-ring');
         const hoverTriggers = document.querySelectorAll('.hover-trigger');
@@ -687,10 +964,28 @@
                 cursorRing.style.left = e.clientX + 'px';
                 cursorRing.style.top = e.clientY + 'px';
             }, 50);
+
+            // Electricity trail sparks
+            if(Math.random() > 0.75) {
+                const spark = document.createElement('div');
+                spark.className = 'cursor-spark';
+                spark.style.left = e.clientX + 'px';
+                spark.style.top = e.clientY + 'px';
+                spark.style.setProperty('--rx', (Math.random() - 0.5) * 2);
+                spark.style.setProperty('--ry', (Math.random() - 0.5) * 2);
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 400);
+            }
         });
 
-        document.addEventListener('mousedown', () => cursorRing.style.transform = 'translate(-50%, -50%) scale(0.7)');
-        document.addEventListener('mouseup', () => cursorRing.style.transform = 'translate(-50%, -50%) scale(1)');
+        document.addEventListener('mousedown', () => {
+            cursorRing.style.transform = 'translate(-50%, -50%) scale(0.7)';
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8) rotate(-15deg)';
+        });
+        document.addEventListener('mouseup', () => {
+            cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+        });
 
         hoverTriggers.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
@@ -728,6 +1023,20 @@
         mobileMenuBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
         document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', toggleMenu));
+
+        // FAQ Terminal Accordion Logic
+        function toggleFAQ(element) {
+            const answer = element.querySelector('.faq-answer');
+            const icon = element.querySelector('.faq-icon');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                answer.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
 
         // Theme Toggle Logic with custom event for Three.js
         function toggleTheme() {
@@ -832,34 +1141,46 @@
             // --- LIGHTNING GENERATOR ---
             const activeLightnings = [];
             
-            function generateLightningBranch(startVec, directionVec, length, depth, maxDepth, positionsArray) {
+            function generateLightningBranch(startVec, directionVec, length, depth, maxDepth, positionsArray, isMain = false) {
                 if(depth > maxDepth) return;
                 
                 let currentPos = startVec.clone();
                 // Number of jagged segments for this branch
-                let segments = Math.floor(length / 30) + 4; 
+                let segments = Math.floor(length / 25) + 5; 
                 
                 for(let i=0; i<segments; i++) {
                     // Move forward in direction
                     let nextPos = currentPos.clone().add(directionVec.clone().multiplyScalar(length / segments));
                     
-                    // Add erratic jitter (spider web effect)
-                    nextPos.x += (Math.random() - 0.5) * 60;
-                    nextPos.y += (Math.random() - 0.5) * 60;
-                    nextPos.z += (Math.random() - 0.5) * 60;
+                    // Add erratic jitter (Less on main trunk, more on branches)
+                    let jitterAmount = isMain ? 20 : 40;
+                    nextPos.x += (Math.random() - 0.5) * jitterAmount;
+                    nextPos.y += (Math.random() - 0.5) * jitterAmount;
+                    nextPos.z += (Math.random() - 0.5) * jitterAmount;
                     
                     positionsArray.push(currentPos.x, currentPos.y, currentPos.z);
                     positionsArray.push(nextPos.x, nextPos.y, nextPos.z);
+
+                    // FAKE THICKNESS: Generate parallel lines slightly offset to make the core bolt thicker
+                    if (isMain) {
+                        for(let t=1; t<=3; t++) {
+                            let offsetX = (Math.random() - 0.5) * 15;
+                            let offsetY = (Math.random() - 0.5) * 15;
+                            let offsetZ = (Math.random() - 0.5) * 15;
+                            positionsArray.push(currentPos.x + offsetX, currentPos.y + offsetY, currentPos.z + offsetZ);
+                            positionsArray.push(nextPos.x + offsetX, nextPos.y + offsetY, nextPos.z + offsetZ);
+                        }
+                    }
                     
-                    // Fork / Branching logic - INCREASED THRESHOLD FOR LESS BUNCHING
-                    if(Math.random() > 0.88 && depth < maxDepth) {
+                    // Fork / Branching logic
+                    if(Math.random() > 0.90 && depth < maxDepth) {
                         // Create a random angular deviation for the fork
                         let angleX = (Math.random() - 0.5) * 1.5;
                         let angleY = (Math.random() - 0.5) * 1.5;
                         let angleZ = (Math.random() - 0.5) * 1.5;
                         let forkDir = directionVec.clone().applyEuler(new THREE.Euler(angleX, angleY, angleZ)).normalize();
                         
-                        generateLightningBranch(nextPos, forkDir, length * 0.6, depth + 1, maxDepth, positionsArray);
+                        generateLightningBranch(nextPos, forkDir, length * 0.5, depth + 1, maxDepth, positionsArray, false);
                     }
                     
                     currentPos = nextPos;
@@ -882,8 +1203,8 @@
                 const dirZ = (Math.random() - 0.5) * 2;
                 const direction = new THREE.Vector3(dirX, dirY, dirZ).normalize();
                 
-                // Build the geometry arrays recursively
-                generateLightningBranch(startPos, direction, 600 + Math.random() * 800, 0, 4, positions);
+                // Build the geometry arrays recursively (pass TRUE for the main trunk)
+                generateLightningBranch(startPos, direction, 600 + Math.random() * 800, 0, 4, positions, true);
                 
                 const geo = new THREE.BufferGeometry();
                 geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
@@ -901,8 +1222,8 @@
                 activeLightnings.push({
                     mesh: line,
                     life: 1.0,
-                    // SLOWER DECAY RATE SO IT LINGERS LONGER
-                    decayRate: 0.008 + Math.random() * 0.015
+                    // FASTER DECAY BUT LINGERS LONG ENOUGH TO SEE
+                    decayRate: 0.02 + Math.random() * 0.02
                 });
             }
 
@@ -931,13 +1252,12 @@
 
                 // Sky Storm Mechanics: Random lightning strikes
                 // REDUCED FREQUENCY OF STRIKES
-                if(Math.random() > 0.993 && flashIntensity < 0.1) {
+                if(Math.random() > 0.996 && flashIntensity < 0.05) {
                     triggerLightning();
                     // REDUCED MULTI-STRIKE CHANCE AND ADDED DELAY
-                    if(Math.random() > 0.8) setTimeout(triggerLightning, 300);
-                    if(Math.random() > 0.95) setTimeout(triggerLightning, 600);
+                    if(Math.random() > 0.85) setTimeout(triggerLightning, 300);
                     
-                    flashIntensity = 0.8; // Trigger global thunder flash (slightly dimmer)
+                    flashIntensity = 0.8; // Trigger global thunder flash
                 }
 
                 // Update active lightnings
@@ -946,7 +1266,7 @@
                     l.life -= l.decayRate;
                     
                     // Flicker effect before dying
-                    l.mesh.material.opacity = l.life * (Math.random() > 0.2 ? 1 : 0.2);
+                    l.mesh.material.opacity = l.life * (Math.random() > 0.1 ? 1 : 0.1);
                     
                     if(l.life <= 0) {
                         group.remove(l.mesh);
