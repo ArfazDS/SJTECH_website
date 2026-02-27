@@ -207,7 +207,7 @@
     class="bg-white dark:bg-google-darkbg text-google-text dark:text-google-darktext font-sans transition-colors duration-300">
 
     <!-- Accessibility Control Widget -->
-    <div id="acc-widget" class="fixed bottom-6 left-6 z-[2000] hidden">
+    <div id="acc-widget" class="fixed bottom-24 right-6 z-[2000] hidden">
         <div
             class="bg-white dark:bg-google-darksurface shadow-2xl p-6 rounded-[2rem] border border-google-border dark:border-google-darkborder flex flex-col gap-4 min-w-[200px]">
             <h6 class="text-xs font-bold uppercase tracking-widest text-google-blue">Accessibility Panel</h6>
@@ -228,11 +228,18 @@
                 Panel</button>
         </div>
     </div>
-    <button onclick="document.getElementById('acc-widget').classList.toggle('hidden')"
-        class="fixed bottom-6 left-6 z-[2001] bg-google-blue text-white p-4 rounded-full shadow-google hover:scale-110 transition-transform"
-        title="Accessibility Options">
-        <i data-lucide="accessibility" class="w-6 h-6"></i>
-    </button>
+    <div class="fixed bottom-6 right-6 z-[2001] flex flex-col gap-3">
+        <button id="scrollToTopBtn" onclick="scrollToTop()"
+            class="bg-white dark:bg-google-darksurface text-google-text dark:text-white border border-google-border dark:border-gray-800 p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all opacity-0 pointer-events-none translate-y-4"
+            title="Scroll to Top">
+            <i data-lucide="arrow-up" class="w-6 h-6"></i>
+        </button>
+        <button onclick="document.getElementById('acc-widget').classList.toggle('hidden')"
+            class="bg-google-blue text-white p-4 rounded-full shadow-google hover:scale-110 transition-transform"
+            title="Accessibility Options">
+            <i data-lucide="accessibility" class="w-6 h-6"></i>
+        </button>
+    </div>
 
     <!-- Navigation -->
     <nav id="navbar"
@@ -630,57 +637,190 @@
     <section id="social-feed"
         class="py-24 bg-white dark:bg-google-darkbg transition-colors border-y border-google-border dark:border-google-darkborder">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal">
-                <div class="max-w-3xl">
-                    <h2 class="font-display text-4xl font-bold mb-4">Live Social Feed</h2>
-                    <p class="text-google-textmuted text-xl">Direct field updates and event coverage from SJTech
-                        Solutions.</p>
-                </div>
-                <a href="https://www.linkedin.com/company/sjtech-solutions/posts/?feedView=all" target="_blank"
-                    rel="noopener noreferrer"
-                    class="px-6 py-3 bg-[#0077b5] text-white rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-all shadow-md text-sm">
-                    <i data-lucide="linkedin" class="w-4 h-4"></i> Follow SJTech
-                </a>
+            <style>
+                /* Custom Scrollbar hiding for carousel */
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            </style>
+
+            <div class="mb-12 text-center md:text-left reveal">
+                <h2 class="font-display text-4xl font-bold mb-4">Live Social Feed</h2>
+                <p class="text-google-textmuted text-xl">Direct field updates and event coverage from SJTech Solutions.
+                </p>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-8">
-                <div class="reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] bg-google-bg dark:bg-google-darksurface rounded-3xl overflow-hidden border border-google-border dark:border-google-darkborder group cursor-pointer"
-                    onclick="window.open('https://www.linkedin.com/company/sjtech-solutions/posts/?feedView=images', '_blank', 'noopener,noreferrer')">
-                    <div class="aspect-[21/9] bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80"
-                            class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                            <div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Event Visuals & Deployments</h4>
-                                <p class="text-gray-300 text-sm">Browse high-resolution captures from our recent
-                                    deployments, G20 features, and DISCOM field visits.</p>
-                            </div>
+            <!-- Modern Interactive Social Carousel -->
+            <div id="social-carousel"
+                class="w-full flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth">
+
+                <!-- Post 1: Colony Project (Requested anchor) -->
+                <div
+                    class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group">
+                    <!-- Post Header -->
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
+                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
                         </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">Community & Maintenance</span>
+                        </div>
+                    </div>
+
+                    <!-- Post Caption -->
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Let your community shine brighter than the neighbouring one! ✨<br><br>
+                            #SJTech #solutions #apps #development #community #colony #maintenance #shine
+                        </p>
+                    </div>
+
+                    <!-- Post Media (Image) -->
+                    <div class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1575825700854-46abef9ec2ff?auto=format&fit=crop&w=600&q=80"
+                            alt="Shining Community"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+
+                    <!-- Post Engagement Footer -->
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <div class="flex gap-3">
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 142
+                            </button>
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 28
+                            </button>
+                        </div>
+                        <button
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] bg-google-bg dark:bg-google-darksurface rounded-3xl overflow-hidden border border-google-border dark:border-google-darkborder group cursor-pointer"
-                    onclick="window.open('https://www.linkedin.com/company/sjtech-solutions/posts/?feedView=videos', '_blank', 'noopener,noreferrer')"
+                <!-- Post 2: Recent Post (Example) -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
                     style="transition-delay: 0.1s;">
-                    <div class="aspect-[21/9] bg-black relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558444479-c8f010528733?auto=format&fit=crop&w=1000&q=80"
-                            class="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div
-                                class="w-16 h-16 bg-white/20 backdrop-blur rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition-all text-white">
-                                <i data-lucide="play" class="fill-current w-6 h-6"></i>
-                            </div>
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
+                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
                         </div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8 pointer-events-none">
-                            <div>
-                                <h4 class="text-2xl font-bold text-white mb-2">Video Briefings</h4>
-                                <p class="text-gray-300 text-sm">Expert technical demonstrations on AT&C loss reduction
-                                    logic and ESaaS modeling.</p>
-                            </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">Tech Innovation</span>
                         </div>
                     </div>
+
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Our latest AI-driven platform is revolutionizing data analytics for enterprises, providing
+                            unparalleled insights and efficiency. #AI #DataScience #EnterpriseSolutions
+                        </p>
+                    </div>
+
+                    <div
+                        class="relative aspect-square w-full bg-black overflow-hidden flex items-center justify-center cursor-pointer group/video">
+                        <img src="https://images.unsplash.com/photo-1558444479-c8f010528733?auto=format&fit=crop&w=600&q=80"
+                            alt="Video cover"
+                            class="w-full h-full object-cover opacity-60 group-hover/video:opacity-40 transition-opacity">
+                        <div
+                            class="absolute w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover/video:scale-110 transition-transform">
+                            <i data-lucide="play" class="w-4 h-4 text-white fill-white ml-0.5"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <div class="flex gap-3">
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 215
+                            </button>
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 45
+                            </button>
+                        </div>
+                        <button
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Post 3: Award (Example) -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.2s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
+                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">Corporate Milestones</span>
+                        </div>
+                    </div>
+
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            We're thrilled to announce a new partnership that will expand our reach and bring innovative
+                            solutions to more clients worldwide. #Partnership #GlobalExpansion #Innovation
+                        </p>
+                    </div>
+
+                    <!-- Post Media (Image) -->
+                    <div class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&w=600&q=80"
+                            alt="Award Event"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <div class="flex gap-3">
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 589
+                            </button>
+                            <button
+                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 112
+                            </button>
+                        </div>
+                        <button
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centered Navigation Arrows -->
+            <div class="flex justify-center gap-4 mt-8 reveal">
+                <button onclick="scrollCarousel(-1)"
+                    class="w-12 h-12 rounded-full border border-google-border dark:border-gray-700 flex items-center justify-center hover:bg-google-bg dark:hover:bg-gray-800 hover:text-google-blue transition-all shadow-sm">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <button onclick="scrollCarousel(1)"
+                    class="w-12 h-12 rounded-full border border-google-border dark:border-gray-700 flex items-center justify-center hover:bg-google-bg dark:hover:bg-gray-800 hover:text-google-blue transition-all shadow-sm">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -700,7 +840,7 @@
 
                 <!-- Article 1: EIIIS & DISCOMs -->
                 <article
-                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
+                    class="group relative flex-1 min-h-[200px] lg:min-h-0 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <!-- Background gradient that appears on expansion -->
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-blue/10 to-transparent dark:from-google-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
@@ -748,7 +888,8 @@
                                     Infrastructure System (EIIIS) is our proprietary AI/ML-driven SaaS. Instead of blind
                                     sweeps, EIIIS ingests massive amounts of consumer billing and metering data. Using
                                     complex Machine Learning algorithms, it predicts exactly <strong>where</strong> and
-                                    <strong>how</strong> energy theft or meter tampering is occurring.</p>
+                                    <strong>how</strong> energy theft or meter tampering is occurring.
+                                </p>
                                 <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Digital Twin
                                     Technology</h3>
                                 <p class="text-google-textmuted text-sm mb-4">EIIIS doesn't just read data; it maps the
@@ -761,7 +902,8 @@
                                     Over the last two years, EIIIS has been actively deployed at major distribution hubs
                                     including <strong>MPMKVVCL (Madhya Pradesh)</strong> and is currently executing in
                                     <strong>KESCO (Kanpur, Uttar Pradesh)</strong>, resulting in massive arrear recovery
-                                    and loss minimization.</p>
+                                    and loss minimization.
+                                </p>
                                 <div
                                     class="mt-4 p-4 bg-google-bluelight dark:bg-blue-900/20 rounded-xl border border-google-blue/30 text-sm">
                                     <strong>The SJTech Advantage:</strong> Zero new hardware is required. EIIIS is
@@ -775,7 +917,7 @@
 
                 <!-- Article 2: EIIP & Corporates -->
                 <article
-                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
+                    class="group relative flex-1 min-h-[200px] lg:min-h-0 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-green/10 to-transparent dark:from-google-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
@@ -836,7 +978,7 @@
 
                 <!-- Article 3: Govt ERPs -->
                 <article
-                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
+                    class="group relative flex-1 min-h-[200px] lg:min-h-0 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-yellow/10 to-transparent dark:from-google-yellow/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
@@ -1223,6 +1365,29 @@
             if (htmlBaseSize < 80) htmlBaseSize = 80;
             if (htmlBaseSize > 150) htmlBaseSize = 150;
             document.documentElement.style.fontSize = htmlBaseSize + '%';
+        }
+
+        // Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                scrollTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                scrollTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Carousel Scroll Logic
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('social-carousel');
+            // Assuming simplified smaller card size of ~300px + gap
+            const scrollAmount = carousel.offsetWidth > 768 ? 320 + 16 : 280 + 16;
+            carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
         }
 
         // Reveal Animation Observer
