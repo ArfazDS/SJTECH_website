@@ -129,7 +129,6 @@
     </script>
 
     <!-- Icons -->
-    <!-- Pinned to a specific stable version to avoid breaking changes -->
     <script src="https://unpkg.com/lucide@0.447.0/dist/umd/lucide.min.js"></script>
 
     <style>
@@ -338,28 +337,6 @@
                     class="px-10 py-4 bg-google-blue text-white rounded-full text-lg font-bold shadow-google hover:scale-105 hover:bg-blue-700 hover:shadow-glow transition-all">Explore
                     Platform</a>
             </div>
-
-            <!-- Animated Telemetry Status (Now static post-animation per request) -->
-            <!-- <div
-                class="reveal max-w-3xl mx-auto bg-google-bg dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-2xl p-4 flex flex-wrap justify-center items-center gap-6 md:gap-12 shadow-sm">
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-google-green animate-pulse"></div>
-                    <span class="font-mono text-sm font-bold text-google-text dark:text-white">EIIIS Telemetry:
-                        Online</span>
-                </div>
-                <div class="hidden md:block w-px h-6 bg-google-border dark:bg-gray-700"></div>
-                <div class="flex items-center gap-3">
-                    <i data-lucide="activity" class="w-4 h-4 text-google-blue"></i>
-                    <span class="font-mono text-sm text-google-textmuted dark:text-gray-400">Data Points Processed:
-                        <span id="data-counter" class="font-bold text-google-blue">2,143,500</span></span>
-                </div>
-                <div class="hidden md:block w-px h-6 bg-google-border dark:bg-gray-700"></div>
-                <div class="flex items-center gap-3">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-google-green"></i>
-                    <span class="font-mono text-sm text-google-textmuted dark:text-gray-400">Hardware Integration:
-                        Agnostic</span>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -659,156 +636,325 @@
             <div id="social-carousel"
                 class="w-full flex overflow-x-auto gap-4 pb-8 snap-x snap-mandatory scrollbar-hide scroll-smooth">
 
-                <!-- Post 1: Colony Project (Requested anchor) -->
-                <div
-                    class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group">
-                    <!-- Post Header -->
+                <!-- Post 1 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0s;">
                     <div class="p-4 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
-                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
                                 Solutions</h4>
-                            <span class="text-[10px] text-google-textmuted">Community & Maintenance</span>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
                         </div>
                     </div>
-
-                    <!-- Post Caption -->
                     <div class="px-4 pb-3 flex-grow">
                         <p
                             class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
-                            Let your community shine brighter than the neighbouring one! ✨<br><br>
-                            #SJTech #solutions #apps #development #community #colony #maintenance #shine
+                            Excited to be part of the Global AI Summit in Telangana! Showcasing how SJTech is driving
+                            enterprise loss reduction and autonomous vigilance...<br><br>#TelanganaAISummit
+                            #GlobalAISummit #Telangana #AI
                         </p>
                     </div>
-
-                    <!-- Post Media (Image) -->
-                    <div class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1575825700854-46abef9ec2ff?auto=format&fit=crop&w=600&q=80"
-                            alt="Shining Community"
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_telanganaaisummit-globalaisummit-telangana-activity-7239731756487081984-duKl"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=600&q=80"
+                            alt="Global AI Summit"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-
-                    <!-- Post Engagement Footer -->
+                    </a>
                     <div
                         class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
-                        <div class="flex gap-3">
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 142
-                            </button>
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 28
-                            </button>
-                        </div>
-                        <button
-                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-                        </button>
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_telanganaaisummit-globalaisummit-telangana-activity-7239731756487081984-duKl"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Post 2: Recent Post (Example) -->
+                <!-- Post 2 -->
                 <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
                     style="transition-delay: 0.1s;">
                     <div class="p-4 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
-                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
                                 Solutions</h4>
-                            <span class="text-[10px] text-google-textmuted">Tech Innovation</span>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
                         </div>
                     </div>
-
                     <div class="px-4 pb-3 flex-grow">
                         <p
                             class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
-                            Our latest AI-driven platform is revolutionizing data analytics for enterprises, providing
-                            unparalleled insights and efficiency. #AI #DataScience #EnterpriseSolutions
+                            Honored to present our predictive AI capabilities at the Seminar on Artificial Intelligence
+                            for Military Applications hosted by MCEME...<br><br>#AI #MCEME #Startups #DefenseTech
                         </p>
                     </div>
-
-                    <div
-                        class="relative aspect-square w-full bg-black overflow-hidden flex items-center justify-center cursor-pointer group/video">
-                        <img src="https://images.unsplash.com/photo-1558444479-c8f010528733?auto=format&fit=crop&w=600&q=80"
-                            alt="Video cover"
-                            class="w-full h-full object-cover opacity-60 group-hover/video:opacity-40 transition-opacity">
-                        <div
-                            class="absolute w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover/video:scale-110 transition-transform">
-                            <i data-lucide="play" class="w-4 h-4 text-white fill-white ml-0.5"></i>
-                        </div>
-                    </div>
-
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_ai-mceme-startups-activity-7112878841416548352-qFdW"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=600&q=80"
+                            alt="Military AI MCEME"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
                     <div
                         class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
-                        <div class="flex gap-3">
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 215
-                            </button>
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 45
-                            </button>
-                        </div>
-                        <button
-                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-                        </button>
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_ai-mceme-startups-activity-7112878841416548352-qFdW"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Post 3: Award (Example) -->
+                <!-- Post 3 -->
                 <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
                     style="transition-delay: 0.2s;">
                     <div class="p-4 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-google-blue/10 flex items-center justify-center shrink-0">
-                            <img src="SJTECH.svg" alt="SJTech" class="w-6 h-6 object-contain">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
                                 Solutions</h4>
-                            <span class="text-[10px] text-google-textmuted">Corporate Milestones</span>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
                         </div>
                     </div>
-
                     <div class="px-4 pb-3 flex-grow">
                         <p
                             class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
-                            We're thrilled to announce a new partnership that will expand our reach and bring innovative
-                            solutions to more clients worldwide. #Partnership #GlobalExpansion #Innovation
+                            Continuing our mission to revolutionize the sector with state-of-the-art AI solutions.
+                            Grateful for the continued support and successful deployments across the
+                            grid.<br><br>#SJTechSolutions #EnterpriseAI #Innovation
                         </p>
                     </div>
-
-                    <!-- Post Media (Image) -->
-                    <div class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?auto=format&fit=crop&w=600&q=80"
-                            alt="Award Event"
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7062777728562806785" target="_blank"
+                        rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"
+                            alt="Tech Milestone"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-
+                    </a>
                     <div
                         class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
-                        <div class="flex gap-3">
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> 589
-                            </button>
-                            <button
-                                class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> 112
-                            </button>
-                        </div>
-                        <button
-                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-semibold">
-                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
-                        </button>
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7062777728562806785"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Post 4 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.3s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Thrilled to be selected under the global G20 presidency for Startup20. A massive milestone
+                            for SJTech Solutions and our energy initiatives! 🌍⚡<br><br>#G20 #Startup20 #AI4Energy
+                            #India
+                        </p>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_g20-startup20-ai4energy-activity-7024778889755303936-NtGh"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80"
+                            alt="G20 Startup20"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_g20-startup20-ai4energy-activity-7024778889755303936-NtGh"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.4s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Did you know? Our hardware-agnostic AI integrates seamlessly with legacy meters and AMR
+                            infrastructure. Proud to be recognized at Powerthon 2022!<br><br>#DidYouKnow #Powerthon2022
+                            #Technology
+                        </p>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_didyouknow-powerthon2022-technology-activity-6989477658585665536-Jg4E"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                            alt="Powerthon Tech"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_didyouknow-powerthon2022-technology-activity-6989477658585665536-Jg4E"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.5s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Transforming the power sector through intelligent technology. Our latest insights on energy
+                            loss reduction are driving massive savings for DISCOMs.<br><br>#Power #Technology #Energy
+                            #SmartGrid
+                        </p>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_power-technology-energy-activity-6989472738826424320-9YJn"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80"
+                            alt="Power Tech Energy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_power-technology-energy-activity-6989472738826424320-9YJn"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 7 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.6s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Contributing to the vision of Atmanirbhar Bharat! Empowering the nation's grid
+                            infrastructure with indigenous AI solutions at Powerthon.<br><br>#Powerthon
+                            #AtmanirbharBharat #AI4Energy
+                        </p>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/sjtech-solutions_powerthon-atmanirbharbharat-ai4energy-activity-6989463245841436672-UX79"
+                        target="_blank" rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80"
+                            alt="Atmanirbhar Bharat AI"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/posts/sjtech-solutions_powerthon-atmanirbharbharat-ai4energy-activity-6989463245841436672-UX79"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 8 -->
+                <div class="reveal snap-center shrink-0 w-[280px] md:w-[320px] bg-white dark:bg-google-darksurface rounded-[1.5rem] border border-google-border dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
+                    style="transition-delay: 0.7s;">
+                    <div class="p-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="linkedin" class="w-5 h-5 text-[#0A66C2]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-google-text dark:text-white leading-tight">SJTech
+                                Solutions</h4>
+                            <span class="text-[10px] text-google-textmuted">LinkedIn Update</span>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-3 flex-grow">
+                        <p
+                            class="text-xs text-google-textmuted dark:text-gray-300 leading-relaxed font-medium line-clamp-4">
+                            Another successful deployment milestone reached. Our dedicated team continues to push the
+                            boundaries of what's possible with Enterprise AI and Utility Tech.<br><br>#SJTechSolutions
+                            #VigilanceAI #TechMilestone
+                        </p>
+                    </div>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7062732538653388800" target="_blank"
+                        rel="noopener noreferrer"
+                        class="relative aspect-square w-full bg-gray-100 dark:bg-gray-800 overflow-hidden block">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                            alt="Tech Milestone Success"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </a>
+                    <div
+                        class="p-3 border-t border-google-border dark:border-gray-800 flex justify-between items-center text-google-textmuted dark:text-gray-400">
+                        <span class="flex items-center gap-1 text-xs font-semibold"><i data-lucide="thumbs-up"
+                                class="w-3.5 h-3.5"></i> Update</span>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7062732538653388800"
+                            target="_blank"
+                            class="flex items-center gap-1 hover:text-google-blue transition-colors text-xs font-bold bg-google-bg dark:bg-gray-800 px-3 py-1.5 rounded-full">
+                            View Post <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Centered Navigation Arrows -->
