@@ -995,17 +995,6 @@
                     </div>
 
                     <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                            <span
-                                class="text-[10px] font-bold text-google-blue bg-google-blue/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-blue/20 whitespace-nowrap">Utility
-                                Tech</span>
-                            <div
-                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-blue group-hover:bg-google-blue group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right"
-                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
-                            </div>
-                        </div>
-
                         <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
                                 <i data-lucide="clock" class="w-3 h-3"></i> 4 min read
@@ -1071,17 +1060,6 @@
                     </div>
 
                     <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                            <span
-                                class="text-[10px] font-bold text-google-green bg-google-green/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-green/20 whitespace-nowrap">Enterprise
-                                SaaS</span>
-                            <div
-                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-green group-hover:bg-google-green group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right"
-                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
-                            </div>
-                        </div>
-
                         <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
                                 <i data-lucide="clock" class="w-3 h-3"></i> 3 min read
@@ -1132,15 +1110,6 @@
                     </div>
 
                     <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                            <span
-                                class="text-[10px] font-bold text-google-yellow bg-google-yellow/10 text-yellow-700 dark:text-yellow-500 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-yellow/20 whitespace-nowrap">GovTech</span>
-                            <div
-                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-yellow group-hover:bg-google-yellow group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right"
-                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
-                            </div>
-                        </div>
 
                         <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
@@ -1585,7 +1554,7 @@
         let currentOpenArticleId = ''; // Variable to track the currently open article
 
         // Fix #1: Allowlist of valid article IDs
-        const VALID_ARTICLE_IDS = ['art1', 'art2', 'art3', 'art4'];
+        const VALID_ARTICLE_IDS = ['art1', 'art2', 'art3'];
 
         // Fix #2: Simple HTML sanitizer — strips script/iframe/event-handler tags
         function sanitizeHTML(html) {
