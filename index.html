@@ -696,124 +696,199 @@
             </div>
 
             <!-- Dynamic Expanding Accordion Layout -->
-            <div class="flex flex-col lg:flex-row gap-4 h-[800px] lg:h-[600px] w-full max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-4 min-h-[400px] w-full max-w-6xl mx-auto">
 
                 <!-- Article 1: EIIIS & DISCOMs -->
-                <article onclick="openArticleModal('art1')"
+                <article
                     class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <!-- Background gradient that appears on expansion -->
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-blue/10 to-transparent dark:from-google-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
 
-                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
-                        <div
-                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                             <span
                                 class="text-[10px] font-bold text-google-blue bg-google-blue/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-blue/20 whitespace-nowrap">Utility
                                 Tech</span>
                             <div
                                 class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-blue group-hover:bg-google-blue group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                                <i data-lucide="arrow-up-right"
+                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
                             </div>
                         </div>
 
-                        <div class="mt-8 transition-all duration-700">
+                        <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
                                 <i data-lucide="clock" class="w-3 h-3"></i> 4 min read
                             </div>
                             <!-- Title remains visible -->
                             <h4
-                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                class="font-display text-2xl lg:text-3xl font-bold mb-2 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
                                 EIIIS: Revolutionizing Vigilance and AT&C Loss Reduction
                             </h4>
 
-                            <!-- Description is hidden until expanded -->
+                            <!-- Excerpt visible by default, fades out on hover -->
+                            <p
+                                class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3 group-hover:hidden">
+                                Discover how SJTech Solutions's flagship SaaS utilizes Machine Learning and Digital
+                                Twin technology to predict energy theft...
+                            </p>
+
+                            <!-- Full Content hidden until expanded -->
                             <div
-                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
-                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
-                                    Discover how SJTech Solutions's flagship SaaS utilizes Machine Learning and Digital
-                                    Twin technology to predict energy theft and mapping anomalies without requiring any
-                                    new smart meters.
-                                </p>
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-y-auto pr-4 custom-scrollbar lg:max-h-[300px]">
+                                <p class="text-base text-google-text dark:text-gray-200 mb-6 font-medium">Electricity
+                                    Distribution Utilities (DISCOMs) bleed millions annually due to Aggregate Technical
+                                    and Commercial (AT&C) losses. Traditional checking is manual, prone to error, and
+                                    inefficient. Enter EIIIS.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">The Power of AI
+                                    in Vigilance</h3>
+                                <p class="text-google-textmuted text-sm mb-4">The Enterprise Intelligent Information
+                                    Infrastructure System (EIIIS) is our proprietary AI/ML-driven SaaS. Instead of blind
+                                    sweeps, EIIIS ingests massive amounts of consumer billing and metering data. Using
+                                    complex Machine Learning algorithms, it predicts exactly <strong>where</strong> and
+                                    <strong>how</strong> energy theft or meter tampering is occurring.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Digital Twin
+                                    Technology</h3>
+                                <p class="text-google-textmuted text-sm mb-4">EIIIS doesn't just read data; it maps the
+                                    physical grid. By utilizing Digital Twin technology, we simulate localized grid
+                                    networks to identify technical anomalies versus commercial theft. This allows
+                                    DISCOMs to deploy their vigilance teams with surgical precision.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Proven at
+                                    Scale: MPMKVVCL & KESCO</h3>
+                                <p class="text-google-textmuted text-sm mb-6">The system's efficacy isn't theoretical.
+                                    Over the last two years, EIIIS has been actively deployed at major distribution hubs
+                                    including <strong>MPMKVVCL (Madhya Pradesh)</strong> and is currently executing in
+                                    <strong>KESCO (Kanpur, Uttar Pradesh)</strong>, resulting in massive arrear recovery
+                                    and loss minimization.</p>
+                                <div
+                                    class="mt-4 p-4 bg-google-bluelight dark:bg-blue-900/20 rounded-xl border border-google-blue/30 text-sm">
+                                    <strong>The SJTech Advantage:</strong> Zero new hardware is required. EIIIS is
+                                    completely hardware agnostic, integrating with traditional meters, digital meters,
+                                    and modern AMR/smart-meter infrastructures seamlessly.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Article 2: EIIP & Corporates -->
-                <article onclick="openArticleModal('art2')"
+                <article
                     class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-green/10 to-transparent dark:from-google-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
 
-                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
-                        <div
-                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                             <span
                                 class="text-[10px] font-bold text-google-green bg-google-green/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-green/20 whitespace-nowrap">Enterprise
                                 SaaS</span>
                             <div
                                 class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-green group-hover:bg-google-green group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                                <i data-lucide="arrow-up-right"
+                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
                             </div>
                         </div>
 
-                        <div class="mt-8 transition-all duration-700">
+                        <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
                                 <i data-lucide="clock" class="w-3 h-3"></i> 3 min read
                             </div>
                             <h4
-                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                class="font-display text-2xl lg:text-3xl font-bold mb-2 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
                                 EIIP: AI-Driven Corporate Energy Optimization
                             </h4>
 
+                            <p
+                                class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3 group-hover:hidden">
+                                How modern corporations are meeting their ESG targets and slashing utility bills by
+                                20% by deploying SJTech Solutions's automated energy auditing logic.
+                            </p>
+
                             <div
-                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
-                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
-                                    How modern corporations are meeting their ESG targets and slashing utility bills by
-                                    20% by deploying SJTech Solutions's automated energy auditing logic.
-                                </p>
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-y-auto pr-4 custom-scrollbar lg:max-h-[300px]">
+                                <p class="text-base text-google-text dark:text-gray-200 mb-6 font-medium">As
+                                    organizations face mounting pressure to meet ESG (Environmental, Social, and
+                                    Governance) targets, tracking and reducing corporate energy footprints has become a
+                                    board-level priority.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Automating the
+                                    Energy Audit</h3>
+                                <p class="text-google-textmuted text-sm mb-4">Historically, energy audits are static
+                                    snapshots taken once a year. The <strong>Enterprise Intelligent IoT Platform
+                                        (EIIP)</strong> transforms this into a continuous, real-time process. Our AI
+                                    integrates with a corporation's existing data streams to automatically identify
+                                    parasitic power drains and inefficient usage patterns across vast facilities.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Guaranteed Bill
+                                    Reduction</h3>
+                                <p class="text-google-textmuted text-sm mb-4">Because EIIP operates on an intelligent
+                                    logic layer, it provides actionable, automated strategies. Organizations utilizing
+                                    EIIP see considerable reductions in their electric charges and utility bills, often
+                                    surpassing 20%, simply by eliminating waste invisible to the human eye.</p>
+                                <p class="text-google-textmuted text-sm mt-4">Furthermore, EIIP ensures that enterprises
+                                    maintain compliance with tightening global carbon tracking standards, securing their
+                                    ESG ratings for future investments.</p>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Article 3: Govt ERPs -->
-                <article onclick="openArticleModal('art3')"
+                <article
                     class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <div
                         class="absolute inset-0 bg-gradient-to-br from-google-yellow/10 to-transparent dark:from-google-yellow/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     </div>
 
-                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
-                        <div
-                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10 overflow-hidden">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                             <span
                                 class="text-[10px] font-bold text-google-yellow bg-google-yellow/10 text-yellow-700 dark:text-yellow-500 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-yellow/20 whitespace-nowrap">GovTech</span>
                             <div
                                 class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-yellow group-hover:bg-google-yellow group-hover:text-white transition-colors shrink-0">
-                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                                <i data-lucide="arrow-up-right"
+                                    class="w-6 h-6 transform group-hover:rotate-45 transition-transform"></i>
                             </div>
                         </div>
 
-                        <div class="mt-8 transition-all duration-700">
+                        <div class="transition-all duration-700 mt-2">
                             <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
                                 <i data-lucide="clock" class="w-3 h-3"></i> 5 min read
                             </div>
                             <h4
-                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                class="font-display text-2xl lg:text-3xl font-bold mb-2 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
                                 Scaling Bespoke ERPs for Governmental Inspections
                             </h4>
 
+                            <p
+                                class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3 group-hover:hidden">
+                                A look at SJTech Solutions's proven capability in scaling highly secure software,
+                                tracking 1,200+ election booths and executing 1,300+ FDA mobile inspections...
+                            </p>
+
                             <div
-                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
-                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
-                                    A look at SJTech Solutions's proven capability in scaling highly secure software,
-                                    tracking 1,200+ election booths and executing 1,300+ FDA mobile inspections for the
-                                    Govt. of MP.
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-y-auto pr-4 custom-scrollbar lg:max-h-[300px]">
+                                <p class="text-base text-google-text dark:text-gray-200 mb-6 font-medium">While SJTech
+                                    is known for AI utility solutions, our foundational capability lies in designing
+                                    highly secure, bespoke Enterprise Resource Planning (ERP) systems for massive
+                                    governmental bodies.</p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">Food and Drugs
+                                    Administration (FDA) Deployments</h3>
+                                <p class="text-google-textmuted text-sm mb-4">We developed a custom mobile-based ERP for
+                                    the Government of Madhya Pradesh to monitor health and safety inspections. Designed
+                                    for the Dept. of Food and Drugs, the app guided officers through highly structured
+                                    inspections at restaurants, hotels, and sales points. Over 18 months, the system
+                                    successfully logged and secured data for more than 1,300 independent field checks.
                                 </p>
+                                <h3 class="text-xl font-bold mt-6 mb-3 text-google-text dark:text-white">
+                                    Mission-Critical: Election Monitoring</h3>
+                                <p class="text-google-textmuted text-sm mb-4">During the 2018 Vidhan Sabha (State)
+                                    elections, the Sehore Collectorate required a zero-fail logistics tracking system.
+                                    SJTech deployed a bespoke ERP to monitor the movement of Electronic Voting Machines
+                                    (EVMs), officials, and logistics to and from booths across four districts. The
+                                    system successfully tracked 1,205 individual booths simultaneously, ensuring
+                                    complete transparency and security in the democratic process.</p>
                             </div>
                         </div>
                     </div>
