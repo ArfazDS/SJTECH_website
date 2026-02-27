@@ -249,8 +249,8 @@
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Architecture</a>
                 <a href="#deployments"
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Impact</a>
-                <a href="#intelligence"
-                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Intelligence</a>
+                <a href="#articles"
+                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Articles</a>
                 <a href="#awards"
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Awards</a>
                 <a href="#leadership"
@@ -266,7 +266,34 @@
                 <a href="#contact"
                     class="hidden sm:block px-7 py-2.5 bg-google-blue text-white rounded-full text-sm font-bold shadow-sm hover:bg-blue-700 hover:shadow-glow transition-all">Contact
                     Us</a>
-                <button class="lg:hidden p-2"><i data-lucide="menu"></i></button>
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white/95 dark:bg-google-darkbg/95 backdrop-blur-xl border-t border-google-border dark:border-google-darkborder">
+            <div class="px-4 py-6 space-y-4 flex flex-col">
+                <a href="#solutions"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Solutions</a>
+                <a href="#technology"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Architecture</a>
+                <a href="#deployments"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Impact</a>
+                <a href="#articles"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Articles</a>
+                <a href="#awards" class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Awards</a>
+                <a href="#leadership"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Team</a>
+                <a href="#contact"
+                    class="inline-block mt-4 px-6 py-3 bg-google-blue text-white rounded-full text-center font-bold hover:bg-blue-700"
+                    onclick="toggleMobileMenu()">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -303,13 +330,10 @@
                 <a href="#solutions"
                     class="px-10 py-4 bg-google-blue text-white rounded-full text-lg font-bold shadow-google hover:scale-105 hover:bg-blue-700 hover:shadow-glow transition-all">Explore
                     Platform</a>
-                <a href="#intelligence"
-                    class="px-10 py-4 bg-white dark:bg-google-darksurface text-google-text dark:text-white border border-google-border dark:border-google-darkborder rounded-full text-lg font-bold hover:bg-google-bg transition-all">Intelligence
-                    Library</a>
             </div>
 
             <!-- Animated Telemetry Status (Now static post-animation per request) -->
-            <div
+            <!-- <div
                 class="reveal max-w-3xl mx-auto bg-google-bg dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-2xl p-4 flex flex-wrap justify-center items-center gap-6 md:gap-12 shadow-sm">
                 <div class="flex items-center gap-3">
                     <div class="w-2 h-2 rounded-full bg-google-green animate-pulse"></div>
@@ -328,7 +352,7 @@
                     <span class="font-mono text-sm text-google-textmuted dark:text-gray-400">Hardware Integration:
                         Agnostic</span>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -562,101 +586,42 @@
         </div>
     </section>
 
-    <!-- SJTech Custom Articles / Intelligence Library -->
-    <section id="intelligence"
-        class="py-32 bg-google-bg dark:bg-[#0a0a0a] border-t border-google-border dark:border-google-darkborder transition-colors">
+    <!-- Deployments & Impact -->
+    <section id="deployments"
+        class="py-32 bg-white dark:bg-google-darkbg transition-colors border-b border-google-border dark:border-google-darkborder">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-20 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Intelligence Library</h2>
-                <p class="text-google-textmuted text-xl max-w-2xl mx-auto">Deep dives into SJTech Solutions' proprietary
-                    technology, deployment case studies, and industry impact.</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Proven at Scale</h2>
+                <p class="text-google-textmuted text-xl max-w-2xl mx-auto">Successful executions across complex
+                    governmental frameworks.</p>
             </div>
-
             <div class="flex flex-wrap justify-center gap-8">
-                <!-- Article 1: EIIIS & DISCOMs -->
-                <article onclick="openArticleModal('art1')"
-                    class="cursor-pointer reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] group bg-white dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-[2.5rem] p-10 hover:shadow-google hover:-translate-y-1 transition-all">
-                    <div class="flex justify-between items-center mb-6">
-                        <span
-                            class="text-[10px] font-bold text-google-blue bg-google-bluelight dark:bg-blue-900/30 px-3 py-1 rounded-full uppercase tracking-widest">Utility
-                            Tech</span>
-                        <span class="text-xs text-google-textmuted flex items-center gap-1"><i data-lucide="clock"
-                                class="w-3 h-3"></i> 4 min read</span>
-                    </div>
-                    <h4 class="font-display text-2xl font-bold mb-4 group-hover:text-google-blue transition-colors">
-                        EIIIS: Revolutionizing Vigilance and AT&C Loss Reduction</h4>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed line-clamp-3">Discover how SJTech
-                        Solutions's
-                        flagship SaaS utilizes Machine Learning and Digital Twin technology to predict energy theft and
-                        mapping anomalies without requiring any new smart meters.</p>
-                    <div class="text-google-blue font-bold text-sm flex items-center gap-2">Read Briefing <i
-                            data-lucide="arrow-right"
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
-                </article>
-
-                <!-- Article 2: EIIP & Corporates -->
-                <article onclick="openArticleModal('art2')"
-                    class="cursor-pointer reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] group bg-white dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-[2.5rem] p-10 hover:shadow-google hover:-translate-y-1 transition-all"
+                <!-- Deployment 1 -->
+                <div
+                    class="reveal flex-1 basis-[300px] min-w-[300px] max-w-[400px] bg-google-bg dark:bg-[#141414] p-10 rounded-[2.5rem] shadow-sm border border-google-border dark:border-gray-800 hover:shadow-google transition-all">
+                    <div class="text-google-blue mb-6"><i data-lucide="zap" class="w-10 h-10"></i></div>
+                    <h4 class="font-display text-2xl font-bold mb-2">MPMKVVCL / KESCO</h4>
+                    <p class="text-xs font-bold text-google-textmuted mb-6 uppercase tracking-widest">DISCOM Deployment
+                    </p>
+                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">Active EIIIS vigilance operations
+                        resulting in mass anomaly detection and arrear recovery.</p>
+                    <div
+                        class="pt-6 border-t border-google-border dark:border-gray-800 font-bold text-google-blue text-sm">
+                        24+ Months Active Execution</div>
+                </div>
+                <!-- Deployment 2 -->
+                <div class="reveal flex-1 basis-[300px] min-w-[300px] max-w-[400px] bg-google-bg dark:bg-[#141414] p-10 rounded-[2.5rem] shadow-sm border border-google-border dark:border-gray-800 hover:shadow-google transition-all"
                     style="transition-delay: 0.1s;">
-                    <div class="flex justify-between items-center mb-6">
-                        <span
-                            class="text-[10px] font-bold text-google-green bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full uppercase tracking-widest">Enterprise
-                            SaaS</span>
-                        <span class="text-xs text-google-textmuted flex items-center gap-1"><i data-lucide="clock"
-                                class="w-3 h-3"></i> 3 min read</span>
-                    </div>
-                    <h4 class="font-display text-2xl font-bold mb-4 group-hover:text-google-blue transition-colors">
-                        EIIP: AI-Driven Corporate Energy Optimization</h4>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed line-clamp-3">How modern corporations
-                        are meeting their ESG targets and slashing utility bills by 20% by deploying SJTech Solutions's
-                        automated
-                        energy auditing logic.</p>
-                    <div class="text-google-blue font-bold text-sm flex items-center gap-2">Read Briefing <i
-                            data-lucide="arrow-right"
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
-                </article>
-
-                <!-- Article 3: Government ERPs -->
-                <article onclick="openArticleModal('art3')"
-                    class="cursor-pointer reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] group bg-white dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-[2.5rem] p-10 hover:shadow-google hover:-translate-y-1 transition-all">
-                    <div class="flex justify-between items-center mb-6">
-                        <span
-                            class="text-[10px] font-bold text-google-yellow bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-500 px-3 py-1 rounded-full uppercase tracking-widest">GovTech</span>
-                        <span class="text-xs text-google-textmuted flex items-center gap-1"><i data-lucide="clock"
-                                class="w-3 h-3"></i> 5 min read</span>
-                    </div>
-                    <h4 class="font-display text-2xl font-bold mb-4 group-hover:text-google-blue transition-colors">
-                        Scaling Bespoke ERPs for Governmental Inspections</h4>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed line-clamp-3">A look at SJTech
-                        Solutions's proven
-                        capability in scaling highly secure software, tracking 1,200+ election booths and executing
-                        1,300+ FDA mobile inspections for the Govt. of MP.</p>
-                    <div class="text-google-blue font-bold text-sm flex items-center gap-2">Read Briefing <i
-                            data-lucide="arrow-right"
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
-                </article>
-
-                <!-- Article 4: Predictive Maintenance / MCEME -->
-                <article onclick="openArticleModal('art4')"
-                    class="cursor-pointer reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px] group bg-white dark:bg-google-darksurface border border-google-border dark:border-google-darkborder rounded-[2.5rem] p-10 hover:shadow-google hover:-translate-y-1 transition-all"
-                    style="transition-delay: 0.1s;">
-                    <div class="flex justify-between items-center mb-6">
-                        <span
-                            class="text-[10px] font-bold text-google-red bg-red-50 dark:bg-red-900/20 px-3 py-1 rounded-full uppercase tracking-widest">Military
-                            AI</span>
-                        <span class="text-xs text-google-textmuted flex items-center gap-1"><i data-lucide="clock"
-                                class="w-3 h-3"></i> 4 min read</span>
-                    </div>
-                    <h4 class="font-display text-2xl font-bold mb-4 group-hover:text-google-blue transition-colors">
-                        Beyond the Grid: Predictive AI for Military Defense</h4>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed line-clamp-3">Highlighting SJTech
-                        Solutions's
-                        showcase at MCEME Secunderabad, exploring how our ML algorithms pivot to provide predictive
-                        maintenance for complex military equipment.</p>
-                    <div class="text-google-blue font-bold text-sm flex items-center gap-2">Read Briefing <i
-                            data-lucide="arrow-right"
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></div>
-                </article>
+                    <div class="text-google-green mb-6"><i data-lucide="activity" class="w-10 h-10"></i></div>
+                    <h4 class="font-display text-2xl font-bold mb-2">FDA Inspection System</h4>
+                    <p class="text-xs font-bold text-google-textmuted mb-6 uppercase tracking-widest">Govt. of Madhya
+                        Pradesh</p>
+                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">Bespoke mobile ERP automating highly
+                        structured inspections across restaurants and sales points.</p>
+                    <div
+                        class="pt-6 border-t border-google-border dark:border-gray-800 font-bold text-google-green text-sm">
+                        1300+ Inspections Logged</div>
+                </div>
             </div>
         </div>
     </section>
@@ -720,50 +685,139 @@
         </div>
     </section>
 
-    <!-- Deployments & Impact -->
-    <section id="deployments"
-        class="py-32 bg-white dark:bg-google-darkbg transition-colors border-b border-google-border dark:border-google-darkborder">
+    <!-- SJTech Custom Articles / Intelligence Library -->
+    <section id="articles"
+        class="py-32 bg-google-bg dark:bg-[#0a0a0a] border-t border-google-border dark:border-google-darkborder transition-colors">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-20 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Proven at Scale</h2>
-                <p class="text-google-textmuted text-xl max-w-2xl mx-auto">Successful executions across complex
-                    governmental frameworks.</p>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Articles</h2>
+                <p class="text-google-textmuted text-xl max-w-2xl mx-auto">Deep dives into SJTech Solutions' proprietary
+                    technology, deployment case studies, and industry impact.</p>
             </div>
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- Deployment 1 -->
-                <div
-                    class="reveal flex-1 basis-[300px] min-w-[300px] max-w-[400px] bg-google-bg dark:bg-[#141414] p-10 rounded-[2.5rem] shadow-sm border border-google-border dark:border-gray-800 hover:shadow-google transition-all">
-                    <div class="text-google-blue mb-6"><i data-lucide="zap" class="w-10 h-10"></i></div>
-                    <h4 class="font-display text-2xl font-bold mb-2">MPMKVVCL / KESCO</h4>
-                    <p class="text-xs font-bold text-google-textmuted mb-6 uppercase tracking-widest">DISCOM Deployment
-                    </p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">Active EIIIS vigilance operations
-                        resulting in mass anomaly detection and arrear recovery.</p>
+
+            <!-- Dynamic Expanding Accordion Layout -->
+            <div class="flex flex-col lg:flex-row gap-4 h-[800px] lg:h-[600px] w-full max-w-6xl mx-auto">
+
+                <!-- Article 1: EIIIS & DISCOMs -->
+                <article onclick="openArticleModal('art1')"
+                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
+                    <!-- Background gradient that appears on expansion -->
                     <div
-                        class="pt-6 border-t border-google-border dark:border-gray-800 font-bold text-google-blue text-sm">
-                        24+ Months Active Execution</div>
-                </div>
-                <!-- Deployment 2 -->
-                <div class="reveal flex-1 basis-[300px] min-w-[300px] max-w-[400px] bg-google-bg dark:bg-[#141414] p-10 rounded-[2.5rem] shadow-sm border border-google-border dark:border-gray-800 hover:shadow-google transition-all"
-                    style="transition-delay: 0.1s;">
-                    <div class="text-google-green mb-6"><i data-lucide="activity" class="w-10 h-10"></i></div>
-                    <h4 class="font-display text-2xl font-bold mb-2">FDA Inspection System</h4>
-                    <p class="text-xs font-bold text-google-textmuted mb-6 uppercase tracking-widest">Govt. of Madhya
-                        Pradesh</p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">Bespoke mobile ERP automating highly
-                        structured inspections across restaurants and sales points.</p>
+                        class="absolute inset-0 bg-gradient-to-br from-google-blue/10 to-transparent dark:from-google-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
+                        <div
+                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                            <span
+                                class="text-[10px] font-bold text-google-blue bg-google-blue/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-blue/20 whitespace-nowrap">Utility
+                                Tech</span>
+                            <div
+                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-blue group-hover:bg-google-blue group-hover:text-white transition-colors shrink-0">
+                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 transition-all duration-700">
+                            <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
+                                <i data-lucide="clock" class="w-3 h-3"></i> 4 min read
+                            </div>
+                            <!-- Title remains visible -->
+                            <h4
+                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                EIIIS: Revolutionizing Vigilance and AT&C Loss Reduction
+                            </h4>
+
+                            <!-- Description is hidden until expanded -->
+                            <div
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
+                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
+                                    Discover how SJTech Solutions's flagship SaaS utilizes Machine Learning and Digital
+                                    Twin technology to predict energy theft and mapping anomalies without requiring any
+                                    new smart meters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2: EIIP & Corporates -->
+                <article onclick="openArticleModal('art2')"
+                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
                     <div
-                        class="pt-6 border-t border-google-border dark:border-gray-800 font-bold text-google-green text-sm">
-                        1300+ Inspections Logged</div>
-                </div>
-                <!-- Deployment 3 -->
-                <!-- <div class="reveal flex-1 basis-[300px] min-w-[300px] max-w-[400px] bg-google-bg dark:bg-[#141414] p-10 rounded-[2.5rem] shadow-sm border border-google-border dark:border-gray-800 hover:shadow-google transition-all" style="transition-delay: 0.2s;">
-                    <div class="text-google-yellow mb-6"><i data-lucide="truck" class="w-10 h-10"></i></div>
-                    <h4 class="font-display text-2xl font-bold mb-2">Election Monitor ERP</h4>
-                    <p class="text-xs font-bold text-google-textmuted mb-6 uppercase tracking-widest">Sehore Collectorate</p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">Secure logistics tracking monitoring EVM and personnel movement during State Vidhan Sabha elections.</p>
-                    <div class="pt-6 border-t border-google-border dark:border-gray-800 font-bold text-google-yellow text-sm">1205 Booths Tracked</div>
-                </div> -->
+                        class="absolute inset-0 bg-gradient-to-br from-google-green/10 to-transparent dark:from-google-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
+                        <div
+                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                            <span
+                                class="text-[10px] font-bold text-google-green bg-google-green/10 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-green/20 whitespace-nowrap">Enterprise
+                                SaaS</span>
+                            <div
+                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-green group-hover:bg-google-green group-hover:text-white transition-colors shrink-0">
+                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 transition-all duration-700">
+                            <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
+                                <i data-lucide="clock" class="w-3 h-3"></i> 3 min read
+                            </div>
+                            <h4
+                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                EIIP: AI-Driven Corporate Energy Optimization
+                            </h4>
+
+                            <div
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
+                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
+                                    How modern corporations are meeting their ESG targets and slashing utility bills by
+                                    20% by deploying SJTech Solutions's automated energy auditing logic.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3: Govt ERPs -->
+                <article onclick="openArticleModal('art3')"
+                    class="group relative flex-1 hover:flex-[3] basis-0 transition-all duration-700 ease-in-out cursor-pointer rounded-[2.5rem] overflow-hidden bg-white dark:bg-google-darksurface border border-google-border dark:border-gray-800 shadow-sm hover:shadow-2xl">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-google-yellow/10 to-transparent dark:from-google-yellow/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+
+                    <div class="h-full flex flex-col p-8 md:p-10 relative z-10">
+                        <div
+                            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-auto">
+                            <span
+                                class="text-[10px] font-bold text-google-yellow bg-google-yellow/10 text-yellow-700 dark:text-yellow-500 px-4 py-1.5 rounded-full uppercase tracking-widest border border-google-yellow/20 whitespace-nowrap">GovTech</span>
+                            <div
+                                class="w-12 h-12 rounded-full bg-google-bg dark:bg-black/50 flex items-center justify-center text-google-yellow group-hover:bg-google-yellow group-hover:text-white transition-colors shrink-0">
+                                <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 transition-all duration-700">
+                            <div class="flex items-center gap-2 mb-4 text-xs font-mono text-google-textmuted">
+                                <i data-lucide="clock" class="w-3 h-3"></i> 5 min read
+                            </div>
+                            <h4
+                                class="font-display text-2xl lg:text-3xl font-bold mb-4 text-google-text dark:text-white leading-tight line-clamp-3 md:line-clamp-none">
+                                Scaling Bespoke ERPs for Governmental Inspections
+                            </h4>
+
+                            <div
+                                class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-4 transition-all duration-500 overflow-hidden">
+                                <p class="text-google-textmuted text-base lg:text-lg leading-relaxed line-clamp-3">
+                                    A look at SJTech Solutions's proven capability in scaling highly secure software,
+                                    tracking 1,200+ election booths and executing 1,300+ FDA mobile inspections for the
+                                    Govt. of MP.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -1051,6 +1105,12 @@
     <script>
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
         // Animated Live Telemetry Counter (Made Static after initial sequence)
         function animateValue(id, start, end, duration) {
