@@ -248,11 +248,15 @@
                 <img src="SJTECH.svg" alt="SJTech Solutions" class="h-10 w-auto" onerror="this.onerror=null;">
             </a>
 
-            <div class="hidden lg:flex space-x-8">
-                <a href="#solutions"
-                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Solutions</a>
+            <div class="hidden lg:flex items-center gap-8">
+                <!-- Navigation Links -->
+                <a href="index.html"
+                    class="text-sm font-semibold text-google-text dark:text-white hover:text-google-blue transition-colors">Home</a>
+                <a href="about.html"
+                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">About
+                    Us</a>
                 <a href="#technology"
-                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Architecture</a>
+                    class="text-sm font-semibold text-google-text dark:text-white hover:text-google-blue transition-colors">Architecture</a>
                 <a href="#deployments"
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Impact</a>
                 <a href="#social-feed"
@@ -263,6 +267,8 @@
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Awards</a>
                 <a href="#leadership"
                     class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Team</a>
+                <a href="careers.html"
+                    class="text-sm font-semibold text-google-textmuted dark:text-google-darkmuted hover:text-google-blue transition-colors">Careers</a>
             </div>
 
             <div class="flex items-center gap-4">
@@ -282,9 +288,13 @@
         <div id="mobile-menu"
             class="hidden lg:hidden bg-white/95 dark:bg-google-darkbg/95 backdrop-blur-xl border-t border-google-border dark:border-google-darkborder">
             <div class="px-4 py-6 space-y-4 flex flex-col">
-                <a href="#solutions"
+                <!-- Mobile Navigation Links -->
+                <a href="index.html"
                     class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
-                    onclick="toggleMobileMenu()">Solutions</a>
+                    onclick="toggleMobileMenu()">Home</a>
+                <a href="about.html"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">About Us</a>
                 <a href="#technology"
                     class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
                     onclick="toggleMobileMenu()">Architecture</a>
@@ -302,6 +312,9 @@
                 <a href="#leadership"
                     class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
                     onclick="toggleMobileMenu()">Team</a>
+                <a href="careers.html"
+                    class="text-lg font-semibold text-google-text dark:text-white hover:text-google-blue"
+                    onclick="toggleMobileMenu()">Careers</a>
                 <a href="#contact"
                     class="inline-block mt-4 px-6 py-3 bg-google-blue text-white rounded-full text-center font-bold hover:bg-blue-700"
                     onclick="toggleMobileMenu()">Contact Us</a>
@@ -341,6 +354,52 @@
                 <a href="#solutions"
                     class="px-10 py-4 bg-google-blue text-white rounded-full text-lg font-bold shadow-google hover:scale-105 hover:bg-blue-700 hover:shadow-glow transition-all">Explore
                     Platform</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Preview Section -->
+    <section
+        class="py-24 bg-google-bg dark:bg-[#0a0a0a] border-y border-google-border dark:border-google-darkborder transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="flex-1 reveal">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-google-bluelight dark:bg-blue-900/30 text-google-blue text-xs font-bold uppercase tracking-widest mb-6">
+                        About Us
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">From Vision to Innovation</h2>
+                    <p class="text-google-textmuted dark:text-google-darkmuted text-xl mb-6 leading-relaxed">
+                        SJTECH SOLUTIONS is a DIPP Certified Startup (recognized by Government of India under Startup
+                        India Scheme) with offices and R&D centers in India and USA.
+                    </p>
+                    <p
+                        class="text-google-textmuted dark:text-google-darkmuted text-lg mb-10 leading-relaxed font-light">
+                        We offer proprietary Artificial Intelligence, Machine Learning, bespoke mobile based Enterprise
+                        Resource Planning (ERP) solutions for Enterprise loss reduction and revenue enhancement.
+                    </p>
+                    <a href="about.html"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 text-google-text dark:text-white border border-google-border dark:border-gray-700 rounded-full font-bold hover:shadow-google hover:-translate-y-1 transition-all">
+                        Read Our Full Story <i data-lucide="arrow-right" class="w-5 h-5 text-google-blue"></i>
+                    </a>
+                </div>
+
+                <!-- Visual / Mascot / Graphic -->
+                <div class="flex-1 reveal relative w-full aspect-square max-w-[500px]">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-google-bluelight to-google-blue/5 dark:from-blue-900/20 dark:to-transparent rounded-[3rem] border border-blue-100 dark:border-blue-900/30 shadow-sm flex items-center justify-center overflow-hidden">
+                        <!-- Abstract globe/network representing India and US presence -->
+                        <i data-lucide="globe-2"
+                            class="w-48 h-48 text-google-blue opacity-50 absolute right-[-10%] bottom-[-10%]"></i>
+                        <div class="text-center z-10 p-8">
+                            <h3 class="font-display text-2xl font-bold mb-2 text-google-text dark:text-white">Global
+                                Presence</h3>
+                            <p class="text-google-textmuted dark:text-gray-400 font-medium">R&D Centers in India & USA
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -430,7 +489,7 @@
 
     <!-- Architecture Section -->
     <section id="technology"
-        class="py-32 bg-white dark:bg-google-darkbg border-t border-google-border dark:border-google-darkborder transition-colors">
+        class="py-32 bg-white dark:bg-google-darkbg border-y border-google-border dark:border-google-darkborder transition-colors">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-20 items-center">
                 <div class="reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px]">
@@ -576,8 +635,7 @@
     </section>
 
     <!-- Deployments & Impact -->
-    <section id="deployments"
-        class="py-32 bg-white dark:bg-google-darkbg transition-colors border-b border-google-border dark:border-google-darkborder">
+    <section id="deployments" class="py-32 bg-white dark:bg-google-darkbg transition-colors">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-20 reveal">
                 <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Proven at Scale</h2>
@@ -1166,6 +1224,9 @@
         </div>
     </section>
 
+    <!-- Visual divider between Articles and Awards -->
+    <div class="h-px w-full bg-google-border dark:bg-google-darkborder"></div>
+
     <!-- Awards Section -->
     <section id="awards"
         class="pt-16 pb-32 bg-google-bg dark:bg-[#0a0a0a] border-b border-google-border dark:border-google-darkborder transition-colors">
@@ -1272,47 +1333,87 @@
             </div>
             <div class="flex flex-wrap justify-center gap-10">
                 <div
-                    class="reveal flex-1 basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all">
+                    class="reveal flex-1 flex flex-col basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all h-full">
                     <img src="https://sjtechsolution.com/assets/images/team/a1.jpeg"
                         class="w-40 h-40 rounded-full mx-auto object-cover border-4 border-google-bluelight dark:border-blue-900/30 mb-8 shadow-sm">
                     <h4 class="text-2xl font-bold mb-2">Shashwat Joshi</h4>
                     <p class="text-google-blue font-bold text-sm mb-6 uppercase tracking-widest">CEO, Founder</p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">B.S. Computer Science, Dean's merit
-                        list, minor Tech. Entrepreneurship, University Honors citation (University of Maryland College
-                        Park, USA - 2019)<br>
-                        AI & ML, app and full stack developer with 12+ years Exp. in software development.</p>
+                    <hr class="border-google-border dark:border-gray-800 w-1/3 mx-auto mb-6">
+                    <ul
+                        class="text-google-textmuted text-lg mb-8 leading-relaxed space-y-3 text-left list-none pl-4 grow">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base">12+ years Exp. in software development</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base">AI, ML, specialized App & Full Stack developer</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base leading-tight">B.S. Computer Science, minor Tech. Entrepreneurship
+                                (University of Maryland College Park, USA - 2019)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="award" class="w-5 h-5 text-google-yellow mt-0.5 shrink-0"></i>
+                            <span class="text-base leading-tight">Dean's Merit List & University Honors Citation</span>
+                        </li>
+                    </ul>
                     <a href="https://www.linkedin.com/in/shashwat-joshi-a991a6b0/" target="_blank"
                         rel="noopener noreferrer"
-                        class="w-12 h-12 inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
+                        class="w-12 h-12 mt-auto mx-auto inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
                             data-lucide="linkedin"></i></a>
                 </div>
-                <div class="reveal flex-1 basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all"
+                <div class="reveal flex-1 flex flex-col basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all h-full"
                     style="transition-delay: 0.1s;">
                     <img src="https://sjtechsolution.com/assets/images/team/a2.jpeg"
                         class="w-40 h-40 rounded-full mx-auto object-cover border-4 border-google-bluelight dark:border-blue-900/30 mb-8 shadow-sm">
                     <h4 class="text-2xl font-bold mb-2">Himanshu Joshi</h4>
                     <p class="text-google-blue font-bold text-sm mb-6 uppercase tracking-widest">Domain Lead, Founder
                     </p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">B.E. Electrical (NIT Bhopal -
-                        1989).<br>
-                        35+ years Exp. in Management.<br> 10+ years Exp. in Business Development, Data Analytics.</p>
+                    <hr class="border-google-border dark:border-gray-800 w-1/3 mx-auto mb-6">
+                    <ul
+                        class="text-google-textmuted text-lg mb-8 leading-relaxed space-y-3 text-left list-none pl-4 grow">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base">35+ years Exp. in Management</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base">10+ years Exp. in Business Development & Data Analytics</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base leading-tight">B.E. Electrical (NIT Bhopal - 1989)</span>
+                        </li>
+                    </ul>
                     <a href="https://www.linkedin.com/in/himanshu-joshi-916029111/" target="_blank"
                         rel="noopener noreferrer"
-                        class="w-12 h-12 inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
+                        class="w-12 h-12 mt-auto mx-auto inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
                             data-lucide="linkedin"></i></a>
                 </div>
-                <div class="reveal flex-1 basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all"
+                <div class="reveal flex-1 flex flex-col basis-[300px] min-w-[280px] max-w-[400px] bg-google-bg dark:bg-google-darksurface p-10 rounded-[3rem] border border-transparent hover:shadow-google text-center transition-all h-full"
                     style="transition-delay: 0.2s;">
                     <img src="https://sjtechsolution.com/assets/images/team/a3.jpeg"
                         class="w-40 h-40 rounded-full mx-auto object-cover border-4 border-google-bluelight dark:border-blue-900/30 mb-8 shadow-sm">
                     <h4 class="text-2xl font-bold mb-2">Pallavi Joshi</h4>
                     <p class="text-google-blue font-bold text-sm mb-6 uppercase tracking-widest">Design Lead, Founder
                     </p>
-                    <p class="text-google-textmuted text-lg mb-8 leading-relaxed">B.A. Psychology (University of
-                        Mumbai - 1992).<br> 10+ years Exp. in design, testing and HR</p>
+                    <hr class="border-google-border dark:border-gray-800 w-1/3 mx-auto mb-6">
+                    <ul
+                        class="text-google-textmuted text-lg mb-8 leading-relaxed space-y-3 text-left list-none pl-4 grow">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base">10+ years Exp. in design, testing and HR</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-google-blue mt-0.5 shrink-0"></i>
+                            <span class="text-base leading-tight">B.A. Psychology (University of Mumbai - 1992)</span>
+                        </li>
+                    </ul>
                     <a href="https://www.linkedin.com/in/pallavi-joshi-727699282/" target="_blank"
                         rel="noopener noreferrer"
-                        class="w-12 h-12 inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
+                        class="w-12 h-12 mt-auto mx-auto inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full text-google-blue hover:scale-110 transition-transform shadow-sm"><i
                             data-lucide="linkedin"></i></a>
                 </div>
             </div>
@@ -1362,50 +1463,145 @@
     <footer id="contact"
         class="bg-google-bg dark:bg-[#050505] pt-24 pb-12 border-t border-google-border dark:border-gray-800 transition-colors">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-between gap-10 mb-20">
-                <div class="flex-1 basis-[300px] min-w-[280px] max-w-[500px]">
-                    <img src="SJTECH.svg" class="h-10 mb-8" alt="Logo" onerror="this.onerror=null;">
-                    <p class="text-google-textmuted text-lg leading-relaxed mb-10 pr-6">From Vision to Innovation.
-                        Proprietary AI & ML software engineered for total enterprise loss reduction and autonomous
-                        revenue enhancement.</p>
-                    <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/company/sjtech-solutions/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-12 h-12 bg-white dark:bg-[#141414] flex items-center justify-center rounded-full text-google-textmuted hover:text-[#0077b5] border border-google-border dark:border-gray-800 transition-colors shadow-sm"><i
-                                data-lucide="linkedin"></i></a>
+            <div class="flex flex-col lg:flex-row justify-between gap-16 mb-20 lg:items-start">
+
+                <!-- Left: Logo, Socials, stacked Indian & US offices -->
+                <div class="flex flex-col gap-12 lg:basis-[400px] lg:max-w-[400px] shrink-0">
+                    <div>
+                        <img src="SJTECH.svg" class="h-10 mb-8" alt="Logo" onerror="this.onerror=null;">
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/company/sjtech-solutions/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-[#141414] flex items-center justify-center rounded-full text-google-textmuted hover:text-[#0077b5] border border-google-border dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                            <a href="https://www.facebook.com/people/SJTech-Solutions/100081212440089/#" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-[#141414] flex items-center justify-center rounded-full text-google-textmuted hover:text-[#1877F2] border border-google-border dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                            <a href="https://x.com/solutionssjtech" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-[#141414] flex items-center justify-center rounded-full text-google-textmuted hover:text-black dark:hover:text-white border border-google-border dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="X (Twitter)">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <h5 class="font-bold uppercase tracking-widest text-xs text-google-blue mb-4">Indian Office
+                            </h5>
+                            <ul class="space-y-3 text-google-textmuted text-base md:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="map-pin" class="w-5 h-5 shrink-0 mt-0.5 text-google-blue"></i>
+                                    <span class="leading-relaxed">158, Zone-I, M. P. Nagar<br>Bhopal, MP 462011
+                                        <br>
+                                        <a href="https://maps.app.goo.gl/xWZUHgasBzfewogX8" target="_blank"
+                                            class="text-xs font-bold text-google-blue hover:text-blue-700 underline mt-1 block w-fit">View
+                                            on Map</a>
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="phone" class="w-5 h-5 shrink-0 text-google-blue"></i>
+                                    <a href="tel:+919977275335" class="hover:text-google-blue transition-colors">+91
+                                        99772
+                                        75335</a>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="mail" class="w-5 h-5 shrink-0 text-google-blue"></i>
+                                    <a href="mailto:info@sjtechsolution.com"
+                                        class="hover:text-google-blue transition-colors break-all">info@sjtechsolution.com</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-bold uppercase tracking-widest text-xs text-google-blue mb-4">US Office</h5>
+                            <ul class="space-y-3 text-google-textmuted text-base md:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="map-pin" class="w-5 h-5 shrink-0 mt-0.5 text-google-blue"></i>
+                                    <span class="leading-relaxed">5900 Balcones Dr STE 100<br>Austin, TX 78731
+                                        <br>
+                                        <a href="https://maps.app.goo.gl/pJmf2KJoqV1G4siB6" target="_blank"
+                                            class="text-xs font-bold text-google-blue hover:text-blue-700 underline mt-1 block w-fit">View
+                                            on Map</a>
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="mail" class="w-5 h-5 shrink-0 text-google-blue"></i>
+                                    <a href="mailto:info@sjtechsolution.com"
+                                        class="hover:text-google-blue transition-colors break-all">info@sjtechsolution.com</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex-1 basis-[250px] min-w-[250px] max-w-[400px]">
-                    <h5 class="font-bold uppercase tracking-widest text-xs text-google-blue mb-8">Indian Office</h5>
-                    <ul class="space-y-4 text-google-textmuted text-lg">
-                        <li class="flex items-start gap-4">
-                            <i data-lucide="map-pin" class="w-6 h-6 shrink-0 mt-1 text-google-blue"></i>
-                            <span class="leading-relaxed">158, Zone-I, M. P. Nagar<br>Bhopal, MP 462011</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <i data-lucide="phone" class="w-6 h-6 shrink-0 text-google-blue"></i>
-                            <!-- Phone encoded to deter spam bots -->
-                            <span id="phone-num"></span>
-                            <script>document.getElementById('phone-num').textContent = ['+91', '99772', '75335'].join(' ');</script>
-                        </li>
-                    </ul>
-                </div>
+                <!-- Right: Enhanced Contact Form Area -->
+                <div
+                    class="flex-1 w-full m-0 bg-white dark:bg-google-darksurface p-8 md:p-12 rounded-[3rem] border border-google-border dark:border-gray-800 shadow-sm reveal h-fit">
+                    <div class="text-center mb-10">
+                        <h3 class="font-display text-3xl font-bold mb-4">Get In Touch</h3>
+                        <p class="text-google-textmuted">Have a query or want to request a demo? Drop us a message.</p>
+                    </div>
+                    <!-- Native Form -> Mailto using a small script to parse body params -->
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-google-textmuted mb-2">Your Name</label>
+                                <input type="text" id="contactName" maxlength="50" required
+                                    class="w-full bg-google-bg dark:bg-[#0a0a0a] border border-google-border dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-google-text dark:text-white"
+                                    placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-google-textmuted mb-2">Email ID</label>
+                                <input type="email" id="contactEmail" maxlength="50" required
+                                    class="w-full bg-google-bg dark:bg-[#0a0a0a] border border-google-border dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-google-text dark:text-white"
+                                    placeholder="john@company.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-google-textmuted mb-2">Subject</label>
+                            <input type="text" id="contactSubject" maxlength="50" required
+                                class="w-full bg-google-bg dark:bg-[#0a0a0a] border border-google-border dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-google-text dark:text-white"
+                                placeholder="Enterprise Demo Request">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-google-textmuted mb-2">Message (Max 200
+                                chars)</label>
+                            <textarea id="contactMessage" maxlength="200" rows="3" required
+                                class="w-full bg-google-bg dark:bg-[#0a0a0a] border border-google-border dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-google-text dark:text-white resize-none"
+                                placeholder="How can we help you?"></textarea>
+                        </div>
 
-                <div class="flex-1 basis-[250px] min-w-[250px] max-w-[400px]">
-                    <h5 class="font-bold uppercase tracking-widest text-xs text-google-blue mb-8">US Office</h5>
-                    <ul class="space-y-4 text-google-textmuted text-lg">
-                        <li class="flex items-start gap-4">
-                            <i data-lucide="map-pin" class="w-6 h-6 shrink-0 mt-1 text-google-blue"></i>
-                            <span class="leading-relaxed">5900 Balcones Dr STE 100<br>Austin, TX 78731</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <i data-lucide="mail" class="w-6 h-6 shrink-0 text-google-blue"></i>
-                            <!-- Email encoded to deter spam bots -->
-                            <span id="email-text"></span>
-                            <script>document.getElementById('email-text').textContent = ['info', 'sjtechsolution.com'].join('@');</script>
-                        </li>
-                    </ul>
+                        <button type="button" onclick="sendEmail()"
+                            class="w-full py-4 bg-google-blue hover:bg-blue-700 text-white font-bold rounded-xl shadow-google hover:shadow-glow transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i> Send Message
+                        </button>
+                        <p class="text-xs text-center text-google-textmuted mt-4">This will open your default email
+                            client
+                            to send the message to info@sjtechsolution.com</p>
+                    </form>
+
+                    <script>
+                        function sendEmail() {
+                            const name = document.getElementById('contactName').value;
+                            const email = document.getElementById('contactEmail').value;
+                            const subject = document.getElementById('contactSubject').value;
+                            const message = document.getElementById('contactMessage').value;
+
+                            if (!name || !email || !subject || !message) {
+                                alert('Please fill out all fields before sending.');
+                                return;
+                            }
+
+                            const mailToLink = `mailto:info@sjtechsolution.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + email + "\n\nMessage:\n" + message)}`;
+                            window.location.href = mailToLink;
+                        }
+                    </script>
                 </div>
             </div>
 
