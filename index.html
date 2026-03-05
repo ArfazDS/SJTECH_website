@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://cdn.tailwindcss.com;">
 
     <!-- LLM & SEO Optimization -->
     <title>SJTech Solutions | Enterprise Loss Reduction & AI Energy Intelligence</title>
@@ -154,7 +154,7 @@
     </script>
 
     <!-- Icons -->
-    <script src="assets/js/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
 
     <style>
         body {
@@ -165,6 +165,23 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Fallback: ensure content becomes visible even if JS fails */
+        @keyframes revealFallback {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            animation: revealFallback 0.1s ease forwards;
+            animation-delay: 2s;
+        }
+
+        .reveal.active {
+            animation: none;
         }
 
         .reveal.active {
@@ -475,7 +492,9 @@
                         class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-bluelight dark:bg-brand-blue/20 text-brand-blue text-xs font-bold uppercase tracking-widest mb-6">
                         About Us
                     </div>
-                    <h2 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">From Vision to Innovation</h2>
+                    <h2
+                        class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">
+                        From Vision to Innovation</h2>
                     <p class="text-brand-darkmuted dark:text-brand-gray text-xl mb-6 leading-relaxed">
                         SJTECH SOLUTIONS is a DIPP Certified Startup (recognized by Government of India under Startup
                         India Scheme) with offices and R&D centers in India and USA.
@@ -534,7 +553,9 @@
     <section id="solution" class="relative pt-16 pb-32 bg-brand-light dark:bg-brand-charcoal transition-colors">
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-20 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">Core
+                <h2
+                    class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">
+                    Core
                     AI Platforms</h2>
                 <p class="text-brand-muted dark:text-brand-gray text-xl max-w-2xl mx-auto leading-relaxed">Proprietary
                     logic engineered
@@ -611,7 +632,9 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-20 items-center">
                 <div class="reveal flex-1 basis-[400px] min-w-[320px] max-w-[600px]">
-                    <h2 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-8">The Hardware-Agnostic Advantage</h2>
+                    <h2
+                        class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-8">
+                        The Hardware-Agnostic Advantage</h2>
                     <p class="text-brand-darkmuted dark:text-brand-gray text-xl mb-12 leading-relaxed">
                         We don't sell meters. We sell intelligence. Our architecture overlays your existing
                         infrastructure, making implementation rapid and exceptionally cost-effective.
@@ -757,7 +780,9 @@
         class="pt-16 pb-32 bg-brand-light dark:bg-brand-dark border-b border-brand-gray dark:border-brand-charcoal transition-colors">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-20 reveal">
-                <h2 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">Proven at Scale</h2>
+                <h2
+                    class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-6">
+                    Proven at Scale</h2>
                 <p class="text-brand-darkmuted text-xl max-w-2xl mx-auto">Successful executions across complex
                     governmental frameworks.</p>
             </div>
@@ -790,385 +815,379 @@
         </div>
     </section>
 
-    
+
     <!-- Social Intelligence Feed -->
 
-            <!-- FAQs -->
-            <section id="faq"
-                class="pt-16 pb-32 bg-brand-light dark:bg-brand-dark border-t border-brand-gray dark:border-brand-charcoal transition-colors">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h2 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-14 text-center reveal">Frequently Asked Questions</h2>
-                    <div class="space-y-6 reveal">
-                        <details
-                            class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
-                            <summary
-                                class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
-                                How does AI reduce AT&C losses in power grids?
-                                <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
-                            </summary>
-                            <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">AI reduces AT&C losses
-                                by
-                                analyzing smart meter data in real-time, predicting localized energy theft, and
-                                identifying
-                                technical inefficiencies via Digital Twin simulations without requiring new hardware.
-                            </div>
-                        </details>
-                        <details
-                            class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
-                            <summary
-                                class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
-                                What is the EIIP corporate energy solution?
-                                <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
-                            </summary>
-                            <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">EIIP is an AI-driven
-                                SaaS
-                                platform that audits organizational energy usage in real-time, identifying wasteful
-                                patterns and
-                                providing actionable strategies to significantly reduce corporate utility billing.</div>
-                        </details>
-                        <details
-                            class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
-                            <summary
-                                class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
-                                Is implementation hardware dependent?
-                                <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
-                            </summary>
-                            <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">No. Our systems are
-                                hardware
-                                agnostic. We integrate flawlessly with legacy meters, digital meters, AMR, and modern
-                                smart-metering infrastructures using standard data ingestion protocols.</div>
-                        </details>
+    <!-- FAQs -->
+    <section id="faq"
+        class="pt-16 pb-32 bg-brand-light dark:bg-brand-dark border-t border-brand-gray dark:border-brand-charcoal transition-colors">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2
+                class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-14 text-center reveal">
+                Frequently Asked Questions</h2>
+            <div class="space-y-6 reveal">
+                <details
+                    class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
+                    <summary class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
+                        How does AI reduce AT&C losses in power grids?
+                        <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">AI reduces AT&C losses
+                        by
+                        analyzing smart meter data in real-time, predicting localized energy theft, and
+                        identifying
+                        technical inefficiencies via Digital Twin simulations without requiring new hardware.
                     </div>
-                </div>
-            </section>
+                </details>
+                <details
+                    class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
+                    <summary class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
+                        What is the EIIP corporate energy solution?
+                        <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">EIIP is an AI-driven
+                        SaaS
+                        platform that audits organizational energy usage in real-time, identifying wasteful
+                        patterns and
+                        providing actionable strategies to significantly reduce corporate utility billing.</div>
+                </details>
+                <details
+                    class="group bg-white dark:bg-brand-charcoal border border-brand-gray dark:border-gray-800 rounded-[2rem] open:shadow-lg transition-all">
+                    <summary class="p-8 font-bold text-xl cursor-pointer flex justify-between items-center select-none">
+                        Is implementation hardware dependent?
+                        <i data-lucide="chevron-down" class="w-6 h-6 transition group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-8 pb-8 text-brand-darkmuted text-lg leading-relaxed">No. Our systems are
+                        hardware
+                        agnostic. We integrate flawlessly with legacy meters, digital meters, AMR, and modern
+                        smart-metering infrastructures using standard data ingestion protocols.</div>
+                </details>
+            </div>
+        </div>
+    </section>
 
-            <!-- Footer -->
-            <footer id="contact"
-                class="bg-brand-light dark:bg-brand-dark pt-24 pb-12 border-t border-brand-gray dark:border-gray-800 transition-colors">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="flex flex-col lg:flex-row justify-between gap-16 mb-20 lg:items-start">
+    <!-- Footer -->
+    <footer id="contact"
+        class="bg-brand-light dark:bg-brand-dark pt-24 pb-12 border-t border-brand-gray dark:border-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between gap-16 mb-20 lg:items-start">
 
-                        <!-- Left: Logo, Socials, stacked Indian & US offices -->
-                        <div class="flex flex-col gap-12 lg:basis-[400px] lg:max-w-[400px] shrink-0">
-                            <div>
-                                <img src="SJTECH.svg" class="h-10 mb-8" alt="Logo" onerror="this.onerror=null;">
-                                <div class="flex gap-4">
-                                    <a href="https://www.linkedin.com/company/sjtech-solutions/" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-[#0077b5] border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
-                                        aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                                    <a href="https://www.facebook.com/people/SJTech-Solutions/100081212440089/#"
-                                        target="_blank" rel="noopener noreferrer"
-                                        class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-[#1877F2] border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
-                                        aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                                    <a href="https://x.com/solutionssjtech" target="_blank" rel="noopener noreferrer"
-                                        class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-black dark:hover:text-white border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
-                                        aria-label="X (Twitter)">
-                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                            <path
-                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col gap-8">
-                                <div>
-                                    <h5 class="font-bold uppercase tracking-widest text-xs text-brand-blue mb-4">Indian
-                                        Office
-                                    </h5>
-                                    <ul class="space-y-3 text-brand-darkmuted text-base md:text-lg">
-                                        <li class="flex items-start gap-3">
-                                            <i data-lucide="map-pin"
-                                                class="w-5 h-5 shrink-0 mt-0.5 text-brand-blue"></i>
-                                            <span class="leading-relaxed">158, Zone-I, M. P. Nagar<br>Bhopal, MP 462011
-                                                <br>
-                                                <a href="https://maps.app.goo.gl/xWZUHgasBzfewogX8" target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    class="text-xs font-bold text-brand-blue hover:text-orange-700 underline mt-1 block w-fit">View
-                                                    on Map</a>
-                                            </span>
-                                        </li>
-                                        <li class="flex items-center gap-3">
-                                            <i data-lucide="phone" class="w-5 h-5 shrink-0 text-brand-blue"></i>
-                                            <a href="tel:+919977275335"
-                                                class="hover:text-brand-blue transition-colors">+91
-                                                99772
-                                                75335</a>
-                                        </li>
-                                        <li class="flex items-center gap-3">
-                                            <i data-lucide="mail" class="w-5 h-5 shrink-0 text-brand-blue"></i>
-                                            <a href="mailto:info@sjtechsolution.com"
-                                                class="hover:text-brand-blue transition-colors break-all">info@sjtechsolution.com</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h5 class="font-bold uppercase tracking-widest text-xs text-brand-blue mb-4">US
-                                        Office</h5>
-                                    <ul class="space-y-3 text-brand-darkmuted text-base md:text-lg">
-                                        <li class="flex items-start gap-3">
-                                            <i data-lucide="map-pin"
-                                                class="w-5 h-5 shrink-0 mt-0.5 text-brand-blue"></i>
-                                            <span class="leading-relaxed">5900 Balcones Dr STE 100<br>Austin, TX 78731
-                                                <br>
-                                                <a href="https://maps.app.goo.gl/pJmf2KJoqV1G4siB6" target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    class="text-xs font-bold text-brand-blue hover:text-orange-700 underline mt-1 block w-fit">View
-                                                    on Map</a>
-                                            </span>
-                                        </li>
-                                        <li class="flex items-center gap-3">
-                                            <i data-lucide="mail" class="w-5 h-5 shrink-0 text-brand-blue"></i>
-                                            <a href="mailto:info@sjtechsolution.com"
-                                                class="hover:text-brand-blue transition-colors break-all">info@sjtechsolution.com</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right: Enhanced Contact Form Area -->
-                        <div
-                            class="flex-1 w-full m-0 bg-white dark:bg-brand-charcoal p-8 md:p-12 rounded-[3rem] border border-brand-gray dark:border-gray-800 shadow-sm reveal h-fit">
-                            <div class="text-center mb-10">
-                                <h3 class="font-display text-3xl font-bold mb-4">Get In Touch</h3>
-                                <p class="text-brand-darkmuted">Have a query or want to request a demo? Drop us a
-                                    message.</p>
-                            </div>
-                            <!-- Native Form -> Mailto using a small script to parse body params -->
-                            <form id="contactForm" class="space-y-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-sm font-bold text-brand-darkmuted mb-2">Your
-                                            Name</label>
-                                        <input type="text" id="contactName" maxlength="50" required
-                                            class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
-                                            placeholder="John Doe">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-bold text-brand-darkmuted mb-2">Email
-                                            ID</label>
-                                        <input type="email" id="contactEmail" maxlength="50" required
-                                            class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
-                                            placeholder="john@company.com">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-bold text-brand-darkmuted mb-2">Subject</label>
-                                    <input type="text" id="contactSubject" maxlength="50" required
-                                        class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
-                                        placeholder="Enterprise Demo Request">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-bold text-brand-darkmuted mb-2">Message (Max 200
-                                        chars)</label>
-                                    <textarea id="contactMessage" maxlength="200" rows="3" required
-                                        class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white resize-none"
-                                        placeholder="How can we help you?"></textarea>
-                                </div>
-
-                                <button type="button" onclick="sendEmail()"
-                                    class="w-full py-4 bg-brand-blue hover:bg-orange-700 text-white font-bold rounded-xl shadow-glass hover:shadow-glow transition-all flex items-center justify-center gap-2">
-                                    <i data-lucide="send" class="w-5 h-5"></i> Send Message
-                                </button>
-                                <p class="text-xs text-center text-brand-darkmuted mt-4">This will open your default
-                                    email
-                                    client
-                                    to send the message to info@sjtechsolution.com</p>
-                            </form>
-
-                            <script>
-                                function sendEmail() {
-                                    const name = document.getElementById('contactName').value;
-                                    const email = document.getElementById('contactEmail').value;
-                                    const subject = document.getElementById('contactSubject').value;
-                                    const message = document.getElementById('contactMessage').value;
-
-                                    if (!name || !email || !subject || !message) {
-                                        alert('Please fill out all fields before sending.');
-                                        return;
-                                    }
-
-                                    const mailToLink = `mailto:info@sjtechsolution.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + email + "\n\nMessage:\n" + message)}`;
-                                    window.location.href = mailToLink;
-                                }
-                            </script>
+                <!-- Left: Logo, Socials, stacked Indian & US offices -->
+                <div class="flex flex-col gap-12 lg:basis-[400px] lg:max-w-[400px] shrink-0">
+                    <div>
+                        <img src="SJTECH.svg" class="h-10 mb-8" alt="Logo" onerror="this.onerror=null;">
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/company/sjtech-solutions/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-[#0077b5] border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                            <a href="https://www.facebook.com/people/SJTech-Solutions/100081212440089/#" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-[#1877F2] border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                            <a href="https://x.com/solutionssjtech" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 bg-white dark:bg-brand-charcoal flex items-center justify-center rounded-full text-brand-darkmuted hover:text-black dark:hover:text-white border border-brand-gray dark:border-gray-800 transition-colors shadow-sm"
+                                aria-label="X (Twitter)">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                    </path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
-                    <div
-                        class="pt-10 border-t border-brand-gray dark:border-gray-800 flex flex-col justify-center items-center gap-6 text-sm text-brand-darkmuted text-center">
-                        <p class="w-full text-center">© <span id="year"></span> SJTech Solutions Pvt. Ltd. | DIPP
-                            Certified Startup</p>
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <h5 class="font-bold uppercase tracking-widest text-xs text-brand-blue mb-4">Indian
+                                Office
+                            </h5>
+                            <ul class="space-y-3 text-brand-darkmuted text-base md:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="map-pin" class="w-5 h-5 shrink-0 mt-0.5 text-brand-blue"></i>
+                                    <span class="leading-relaxed">158, Zone-I, M. P. Nagar<br>Bhopal, MP 462011
+                                        <br>
+                                        <a href="https://maps.app.goo.gl/xWZUHgasBzfewogX8" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-xs font-bold text-brand-blue hover:text-orange-700 underline mt-1 block w-fit">View
+                                            on Map</a>
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="phone" class="w-5 h-5 shrink-0 text-brand-blue"></i>
+                                    <a href="tel:+919977275335" class="hover:text-brand-blue transition-colors">+91
+                                        99772
+                                        75335</a>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="mail" class="w-5 h-5 shrink-0 text-brand-blue"></i>
+                                    <a href="mailto:info@sjtechsolution.com"
+                                        class="hover:text-brand-blue transition-colors break-all">info@sjtechsolution.com</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="font-bold uppercase tracking-widest text-xs text-brand-blue mb-4">US
+                                Office</h5>
+                            <ul class="space-y-3 text-brand-darkmuted text-base md:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="map-pin" class="w-5 h-5 shrink-0 mt-0.5 text-brand-blue"></i>
+                                    <span class="leading-relaxed">5900 Balcones Dr STE 100<br>Austin, TX 78731
+                                        <br>
+                                        <a href="https://maps.app.goo.gl/pJmf2KJoqV1G4siB6" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-xs font-bold text-brand-blue hover:text-orange-700 underline mt-1 block w-fit">View
+                                            on Map</a>
+                                    </span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i data-lucide="mail" class="w-5 h-5 shrink-0 text-brand-blue"></i>
+                                    <a href="mailto:info@sjtechsolution.com"
+                                        class="hover:text-brand-blue transition-colors break-all">info@sjtechsolution.com</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </footer>
 
-            <!-- Advanced Article Content Modal -->
-            <div id="article-modal"
-                class="hidden fixed inset-0 z-[10000] bg-black/70 backdrop-blur-md items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300">
+                <!-- Right: Enhanced Contact Form Area -->
                 <div
-                    class="modal-enter bg-white dark:bg-brand-charcoal w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl border border-brand-gray dark:border-gray-800 relative flex flex-col">
-                    <!-- Modal Header -->
-                    <div
-                        class="sticky top-0 bg-white/95 dark:bg-brand-charcoal/95 backdrop-blur border-b border-brand-gray dark:border-gray-800 p-6 px-8 md:px-12 flex justify-between items-center z-10 shrink-0">
-                        <div class="flex items-center gap-4">
-                            <span
-                                class="text-[10px] font-bold text-brand-blue bg-brand-bluelight dark:bg-brand-blue/20 px-3 py-1 rounded-full uppercase tracking-widest"
-                                id="modal-category">Intelligence</span>
-                            <span class="hidden md:inline-block text-xs font-mono text-brand-darkmuted"
-                                id="modal-read-time">5
-                                Min Read</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="copyArticleLink()"
-                                class="text-brand-darkmuted hover:text-brand-blue p-2 rounded-full transition-colors flex items-center gap-2 text-xs font-bold"
-                                title="Copy Link">
-                                <i data-lucide="link" class="w-5 h-5"></i> <span class="hidden md:inline-block"
-                                    id="copy-text">Share</span>
-                            </button>
-                            <div class="w-px h-6 bg-brand-gray dark:bg-gray-700 mx-2"></div>
-                            <button onclick="closeArticleModal()"
-                                class="text-brand-darkmuted hover:bg-brand-light dark:hover:bg-gray-800 p-2 rounded-full transition-colors">
-                                <i data-lucide="x" class="w-6 h-6"></i>
-                            </button>
-                        </div>
+                    class="flex-1 w-full m-0 bg-white dark:bg-brand-charcoal p-8 md:p-12 rounded-[3rem] border border-brand-gray dark:border-gray-800 shadow-sm reveal h-fit">
+                    <div class="text-center mb-10">
+                        <h3 class="font-display text-3xl font-bold mb-4">Get In Touch</h3>
+                        <p class="text-brand-darkmuted">Have a query or want to request a demo? Drop us a
+                            message.</p>
                     </div>
-                    <!-- Modal Body -->
-                    <div class="p-8 md:p-12 grow">
-                        <h2 id="modal-title"
-                            class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-10">
-                            Loading...</h2>
-                        <div id="modal-body"
-                            class="prose prose-lg md:prose-xl prose-gray dark:prose-invert max-w-none text-brand-darkmuted dark:text-gray-300 leading-relaxed font-sans">
-                            <!-- Dynamic Content -->
+                    <!-- Native Form -> Mailto using a small script to parse body params -->
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-brand-darkmuted mb-2">Your
+                                    Name</label>
+                                <input type="text" id="contactName" maxlength="50" required
+                                    class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
+                                    placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-brand-darkmuted mb-2">Email
+                                    ID</label>
+                                <input type="email" id="contactEmail" maxlength="50" required
+                                    class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
+                                    placeholder="john@company.com">
+                            </div>
                         </div>
-                    </div>
-                    <!-- Modal Footer -->
-                    <div
-                        class="p-8 border-t border-brand-gray dark:border-gray-800 shrink-0 bg-brand-light dark:bg-[#111]">
-                        <div class="flex items-center gap-4">
-                            <img src="SJTECH.svg" class="h-6" onerror="this.style.display='none'">
-                            <span class="text-xs text-brand-darkmuted font-mono">End of Briefing • SJTech Proprietary
-                                Intelligence</span>
+                        <div>
+                            <label class="block text-sm font-bold text-brand-darkmuted mb-2">Subject</label>
+                            <input type="text" id="contactSubject" maxlength="50" required
+                                class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white"
+                                placeholder="Enterprise Demo Request">
                         </div>
-                    </div>
+                        <div>
+                            <label class="block text-sm font-bold text-brand-darkmuted mb-2">Message (Max 200
+                                chars)</label>
+                            <textarea id="contactMessage" maxlength="200" rows="3" required
+                                class="w-full bg-brand-light dark:bg-brand-dark border border-brand-gray dark:border-gray-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-google-blue/50 transition-all font-sans text-brand-dark dark:text-white resize-none"
+                                placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="button" onclick="sendEmail()"
+                            class="w-full py-4 bg-brand-blue hover:bg-orange-700 text-white font-bold rounded-xl shadow-glass hover:shadow-glow transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i> Send Message
+                        </button>
+                        <p class="text-xs text-center text-brand-darkmuted mt-4">This will open your default
+                            email
+                            client
+                            to send the message to info@sjtechsolution.com</p>
+                    </form>
+
+                    <script>
+                        function sendEmail() {
+                            const name = document.getElementById('contactName').value;
+                            const email = document.getElementById('contactEmail').value;
+                            const subject = document.getElementById('contactSubject').value;
+                            const message = document.getElementById('contactMessage').value;
+
+                            if (!name || !email || !subject || !message) {
+                                alert('Please fill out all fields before sending.');
+                                return;
+                            }
+
+                            const mailToLink = `mailto:info@sjtechsolution.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + email + "\n\nMessage:\n" + message)}`;
+                            window.location.href = mailToLink;
+                        }
+                    </script>
                 </div>
             </div>
 
-            <!-- Scripts -->
-            <script>
-                lucide.createIcons();
-                document.getElementById('year').textContent = new Date().getFullYear();
+            <div
+                class="pt-10 border-t border-brand-gray dark:border-gray-800 flex flex-col justify-center items-center gap-6 text-sm text-brand-darkmuted text-center">
+                <p class="w-full text-center">© <span id="year"></span> SJTech Solutions Pvt. Ltd. | DIPP
+                    Certified Startup</p>
+            </div>
+        </div>
+    </footer>
 
-                // Mobile Menu Toggle
-                function toggleMobileMenu() {
+    <!-- Advanced Article Content Modal -->
+    <div id="article-modal"
+        class="hidden fixed inset-0 z-[10000] bg-black/70 backdrop-blur-md items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300">
+        <div
+            class="modal-enter bg-white dark:bg-brand-charcoal w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] shadow-2xl border border-brand-gray dark:border-gray-800 relative flex flex-col">
+            <!-- Modal Header -->
+            <div
+                class="sticky top-0 bg-white/95 dark:bg-brand-charcoal/95 backdrop-blur border-b border-brand-gray dark:border-gray-800 p-6 px-8 md:px-12 flex justify-between items-center z-10 shrink-0">
+                <div class="flex items-center gap-4">
+                    <span
+                        class="text-[10px] font-bold text-brand-blue bg-brand-bluelight dark:bg-brand-blue/20 px-3 py-1 rounded-full uppercase tracking-widest"
+                        id="modal-category">Intelligence</span>
+                    <span class="hidden md:inline-block text-xs font-mono text-brand-darkmuted" id="modal-read-time">5
+                        Min Read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="copyArticleLink()"
+                        class="text-brand-darkmuted hover:text-brand-blue p-2 rounded-full transition-colors flex items-center gap-2 text-xs font-bold"
+                        title="Copy Link">
+                        <i data-lucide="link" class="w-5 h-5"></i> <span class="hidden md:inline-block"
+                            id="copy-text">Share</span>
+                    </button>
+                    <div class="w-px h-6 bg-brand-gray dark:bg-gray-700 mx-2"></div>
+                    <button onclick="closeArticleModal()"
+                        class="text-brand-darkmuted hover:bg-brand-light dark:hover:bg-gray-800 p-2 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-8 md:p-12 grow">
+                <h2 id="modal-title"
+                    class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark dark:text-white leading-snug mb-10">
+                    Loading...</h2>
+                <div id="modal-body"
+                    class="prose prose-lg md:prose-xl prose-gray dark:prose-invert max-w-none text-brand-darkmuted dark:text-gray-300 leading-relaxed font-sans">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-8 border-t border-brand-gray dark:border-gray-800 shrink-0 bg-brand-light dark:bg-[#111]">
+                <div class="flex items-center gap-4">
+                    <img src="SJTECH.svg" class="h-6" onerror="this.style.display='none'">
+                    <span class="text-xs text-brand-darkmuted font-mono">End of Briefing • SJTech Proprietary
+                        Intelligence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth Scroll Interceptor to prevent Back Button pollution
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
                     const menu = document.getElementById('mobile-menu');
-                    menu.classList.toggle('hidden');
-                }
-
-                // Smooth Scroll Interceptor to prevent Back Button pollution
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-
-                            // Close mobile menu if open
-                            const menu = document.getElementById('mobile-menu');
-                            if (menu && !menu.classList.contains('hidden') && !this.closest('#mobile-menu-toggle')) {
-                                menu.classList.add('hidden');
-                            }
-                        }
-                    });
-                });
-
-                // Animated Live Telemetry Counter (Made Static after initial sequence)
-                function animateValue(id, start, end, duration) {
-                    if (start === end) return;
-                    var obj = document.getElementById(id);
-                    if (!obj) return; // Fix #9: Prevent null reference if element is removed from DOM
-
-                    var range = end - start;
-                    var current = start;
-                    var increment = end > start ? 1 : -1;
-                    var stepTime = Math.abs(Math.floor(duration / range));
-                    var timer = setInterval(function () {
-                        current += increment;
-                        obj.textContent = current.toLocaleString();
-                        if (current == end) {
-                            clearInterval(timer);
-                        }
-                    }, stepTime);
-                }
-                // Count up swiftly and stop exactly at the target number
-                setTimeout(() => animateValue("data-counter", 2143400, 2143500, 2000), 500);
-
-                // Theme Toggle — Fix #8: localStorage in try/catch
-                function toggleTheme() {
-                    const isDark = document.documentElement.classList.toggle('dark');
-                    try { localStorage.theme = isDark ? 'dark' : 'light'; } catch (e) { }
-                }
-
-                // Accessibility Suite (Global Text Scaling)
-                function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
-                let htmlBaseSize = 100;
-                function adjustText(delta) {
-                    htmlBaseSize += delta * 10; // Adjusts by 10%
-                    // Keep it within reasonable readable bounds
-                    if (htmlBaseSize < 80) htmlBaseSize = 80;
-                    if (htmlBaseSize > 150) htmlBaseSize = 150;
-                    document.documentElement.style.fontSize = htmlBaseSize + '%';
-                }
-
-                // Scroll to Top Button Logic
-                const scrollTopBtn = document.getElementById('scrollToTopBtn');
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 500) {
-                        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                        scrollTopBtn.classList.add('opacity-100', 'translate-y-0');
-                    } else {
-                        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                        scrollTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                    if (menu && !menu.classList.contains('hidden') && !this.closest('#mobile-menu-toggle')) {
+                        menu.classList.add('hidden');
                     }
-                });
-                function scrollToTop() {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
+            });
+        });
 
-                // Carousel Scroll Logic
-                function scrollCarousel(direction) {
-                    const carousel = document.getElementById('social-carousel');
-                    // Assuming simplified smaller card size of ~300px + gap
-                    const scrollAmount = carousel.offsetWidth > 768 ? 320 + 16 : 280 + 16;
-                    carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        // Animated Live Telemetry Counter (Made Static after initial sequence)
+        function animateValue(id, start, end, duration) {
+            if (start === end) return;
+            var obj = document.getElementById(id);
+            if (!obj) return; // Fix #9: Prevent null reference if element is removed from DOM
+
+            var range = end - start;
+            var current = start;
+            var increment = end > start ? 1 : -1;
+            var stepTime = Math.abs(Math.floor(duration / range));
+            var timer = setInterval(function () {
+                current += increment;
+                obj.textContent = current.toLocaleString();
+                if (current == end) {
+                    clearInterval(timer);
                 }
+            }, stepTime);
+        }
+        // Count up swiftly and stop exactly at the target number
+        setTimeout(() => animateValue("data-counter", 2143400, 2143500, 2000), 500);
 
-                // Reveal Animation Observer
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                        }
-                    });
-                }, { threshold: 0.15 });
-                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Theme Toggle — Fix #8: localStorage in try/catch
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            try { localStorage.theme = isDark ? 'dark' : 'light'; } catch (e) { }
+        }
 
-                // Intelligence Library Data
-                const intelligenceData = {
-                    art1: {
-                        category: "Utility Tech", time: "4 Min Read",
-                        title: "EIIIS: Revolutionizing Vigilance and AT&C Loss Reduction for DISCOMs",
-                        content: `
+        // Accessibility Suite (Global Text Scaling)
+        function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
+        let htmlBaseSize = 100;
+        function adjustText(delta) {
+            htmlBaseSize += delta * 10; // Adjusts by 10%
+            // Keep it within reasonable readable bounds
+            if (htmlBaseSize < 80) htmlBaseSize = 80;
+            if (htmlBaseSize > 150) htmlBaseSize = 150;
+            document.documentElement.style.fontSize = htmlBaseSize + '%';
+        }
+
+        // Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                scrollTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                scrollTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Carousel Scroll Logic
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('social-carousel');
+            // Assuming simplified smaller card size of ~300px + gap
+            const scrollAmount = carousel.offsetWidth > 768 ? 320 + 16 : 280 + 16;
+            carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+        }
+
+        // Reveal Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Intelligence Library Data
+        const intelligenceData = {
+            art1: {
+                category: "Utility Tech", time: "4 Min Read",
+                title: "EIIIS: Revolutionizing Vigilance and AT&C Loss Reduction for DISCOMs",
+                content: `
                     <p class="lead text-2xl font-medium text-brand-dark dark:text-gray-200 mb-8">Electricity Distribution Utilities (DISCOMs) bleed millions annually due to Aggregate Technical and Commercial (AT&C) losses. Traditional checking is manual, prone to error, and inefficient. Enter EIIIS.</p>
                     <h3 class="text-2xl font-bold mt-10 mb-4 text-brand-dark dark:text-white">The Power of AI in Vigilance</h3>
                     <p>The Enterprise Intelligent Information Infrastructure System (EIIIS) is our proprietary AI/ML-driven SaaS. Instead of blind sweeps, EIIIS ingests massive amounts of consumer billing and metering data. Using complex Machine Learning algorithms, it predicts exactly <strong>where</strong> and <strong>how</strong> energy theft or meter tampering is occurring.</p>
@@ -1180,11 +1199,11 @@
                         <strong>The SJTech Advantage:</strong> Zero new hardware is required. EIIIS is completely hardware agnostic, integrating with traditional meters, digital meters, and modern AMR/smart-meter infrastructures seamlessly.
                     </div>
                 `
-                    },
-                    art2: {
-                        category: "Enterprise SaaS", time: "3 Min Read",
-                        title: "EIIP: AI-Driven Corporate Energy Optimization",
-                        content: `
+            },
+            art2: {
+                category: "Enterprise SaaS", time: "3 Min Read",
+                title: "EIIP: AI-Driven Corporate Energy Optimization",
+                content: `
                     <p class="lead text-2xl font-medium text-brand-dark dark:text-gray-200 mb-8">As organizations face mounting pressure to meet ESG (Environmental, Social, and Governance) targets, tracking and reducing corporate energy footprints has become a board-level priority.</p>
                     <h3 class="text-2xl font-bold mt-10 mb-4 text-brand-dark dark:text-white">Automating the Energy Audit</h3>
                     <p>Historically, energy audits are static snapshots taken once a year. The <strong>Enterprise Intelligent IoT Platform (EIIP)</strong> transforms this into a continuous, real-time process. Our AI integrates with a corporation's existing data streams to automatically identify parasitic power drains and inefficient usage patterns across vast facilities.</p>
@@ -1192,149 +1211,149 @@
                     <p>Because EIIP operates on an intelligent logic layer, it provides actionable, automated strategies. Organizations utilizing EIIP see considerable reductions in their electric charges and utility bills, often surpassing 20%, simply by eliminating waste invisible to the human eye.</p>
                     <p class="mt-4">Furthermore, EIIP ensures that enterprises maintain compliance with tightening global carbon tracking standards, securing their ESG ratings for future investments.</p>
                 `
-                    },
-                    art3: {
-                        category: "GovTech", time: "5 Min Read",
-                        title: "Scaling Bespoke ERPs for Governmental Inspections & Logistics",
-                        content: `
+            },
+            art3: {
+                category: "GovTech", time: "5 Min Read",
+                title: "Scaling Bespoke ERPs for Governmental Inspections & Logistics",
+                content: `
                     <p class="lead text-2xl font-medium text-brand-dark dark:text-gray-200 mb-8">While SJTech is known for AI utility solutions, our foundational capability lies in designing highly secure, bespoke Enterprise Resource Planning (ERP) systems for massive governmental bodies.</p>
                     <h3 class="text-2xl font-bold mt-10 mb-4 text-brand-dark dark:text-white">Food and Drugs Administration (FDA) Deployments</h3>
                     <p>We developed a custom mobile-based ERP for the Government of Madhya Pradesh to monitor health and safety inspections. Designed for the Dept. of Food and Drugs, the app guided officers through highly structured inspections at restaurants, hotels, and sales points. Over 18 months, the system successfully logged and secured data for more than 1,300 independent field checks.</p>
                 `
-                    }
-                };
+            }
+        };
 
-                const modal = document.getElementById('article-modal');
-                let currentOpenArticleId = ''; // Variable to track the currently open article
+        const modal = document.getElementById('article-modal');
+        let currentOpenArticleId = ''; // Variable to track the currently open article
 
-                // Fix #1: Allowlist of valid article IDs
-                const VALID_ARTICLE_IDS = ['art1', 'art2', 'art3'];
+        // Fix #1: Allowlist of valid article IDs
+        const VALID_ARTICLE_IDS = ['art1', 'art2', 'art3'];
 
-                // Fix #2: Simple HTML sanitizer — strips script/iframe/event-handler tags
-                function sanitizeHTML(html) {
-                    const temp = document.createElement('div');
-                    temp.innerHTML = html;
-                    // Remove any script/iframe/object/embed elements injected into content
-                    temp.querySelectorAll('script, iframe, object, embed').forEach(el => el.remove());
-                    // Strip dangerous attributes
-                    temp.querySelectorAll('*').forEach(el => {
-                        [...el.attributes].forEach(attr => {
-                            if (attr.name.startsWith('on') || attr.value.toLowerCase().startsWith('javascript:')) {
-                                el.removeAttribute(attr.name);
-                            }
-                        });
-                    });
-                    return temp.innerHTML;
-                }
-
-                function openArticleModal(id) {
-                    // Validate against allowlist before using the id
-                    if (!VALID_ARTICLE_IDS.includes(id)) return;
-                    currentOpenArticleId = id;
-                    const data = intelligenceData[id];
-                    document.getElementById('modal-category').innerText = data.category;
-                    document.getElementById('modal-read-time').innerText = data.time;
-                    document.getElementById('modal-title').innerText = data.title;
-                    // Fix #1: Sanitize before injecting HTML
-                    document.getElementById('modal-body').innerHTML = sanitizeHTML(data.content);
-
-                    modal.classList.remove('hidden');
-                    setTimeout(() => { modal.classList.add('flex', 'opacity-100'); }, 10);
-                    document.body.style.overflow = 'hidden';
-                }
-
-                function closeArticleModal() {
-                    modal.classList.remove('opacity-100');
-                    setTimeout(() => {
-                        modal.classList.add('hidden');
-                        modal.classList.remove('flex');
-                        document.body.style.overflow = '';
-                        document.getElementById('copy-text').innerText = "Share";
-
-                        // FIXED: Clean the URL to remove the ?article parameter without reloading the page
-                        const url = new URL(window.location);
-                        if (url.searchParams.has('article')) {
-                            url.searchParams.delete('article');
-                            window.history.replaceState({}, '', url);
-                        }
-                    }, 300);
-                }
-
-                window.addEventListener('click', (e) => {
-                    if (e.target === modal) closeArticleModal();
-                });
-
-                // Fix #7: Use modern Clipboard API instead of deprecated execCommand
-                function copyArticleLink() {
-                    const baseUrl = window.location.href.split('?')[0].split('#')[0];
-                    const linkText = baseUrl + '?article=' + currentOpenArticleId + '#intelligence';
-                    const copyText = document.getElementById('copy-text');
-
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(linkText).then(() => {
-                            copyText.innerText = "Copied!";
-                            setTimeout(() => { copyText.innerText = "Share"; }, 2000);
-                        }).catch(() => {
-                            copyText.innerText = "Failed";
-                            setTimeout(() => { copyText.innerText = "Share"; }, 2000);
-                        });
-                    } else {
-                        // Fallback for older browsers only
-                        const dummy = document.createElement('textarea');
-                        dummy.value = linkText;
-                        dummy.setAttribute('readonly', '');
-                        dummy.style.position = 'absolute';
-                        dummy.style.left = '-9999px';
-                        document.body.appendChild(dummy);
-                        dummy.select();
-                        try { document.execCommand('copy'); } catch (e) { }
-                        document.body.removeChild(dummy);
-                        copyText.innerText = "Copied!";
-                        setTimeout(() => { copyText.innerText = "Share"; }, 2000);
-                    }
-                }
-
-                // Deep Linking Listener — validated against allowlist (Fix #2)
-                window.addEventListener('DOMContentLoaded', () => {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const articleToOpen = urlParams.get('article');
-
-                    // Mobile Article Tap Toggle Logic
-                    const articleCards = document.querySelectorAll('.article-card');
-                    articleCards.forEach(card => {
-                        card.addEventListener('click', (e) => {
-                            // If clicking inside the scrollable content area itself, don't collapse immediately
-                            if (e.target.closest('.custom-scrollbar')) return;
-
-                            const isActive = card.classList.contains('active');
-
-                            // Close all
-                            articleCards.forEach(c => c.classList.remove('active'));
-
-                            // If it wasn't active before, open it
-                            if (!isActive) {
-                                card.classList.add('active');
-                            }
-                        });
-                    });
-
-                    // Only open if the article ID is in the explicit allowlist
-                    if (articleToOpen && VALID_ARTICLE_IDS.includes(articleToOpen)) {
-                        setTimeout(() => {
-                            openArticleModal(articleToOpen);
-                            const intelligenceSection = document.getElementById('intelligence');
-                            if (intelligenceSection) intelligenceSection.scrollIntoView();
-                        }, 500);
+        // Fix #2: Simple HTML sanitizer — strips script/iframe/event-handler tags
+        function sanitizeHTML(html) {
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            // Remove any script/iframe/object/embed elements injected into content
+            temp.querySelectorAll('script, iframe, object, embed').forEach(el => el.remove());
+            // Strip dangerous attributes
+            temp.querySelectorAll('*').forEach(el => {
+                [...el.attributes].forEach(attr => {
+                    if (attr.name.startsWith('on') || attr.value.toLowerCase().startsWith('javascript:')) {
+                        el.removeAttribute(attr.name);
                     }
                 });
+            });
+            return temp.innerHTML;
+        }
 
-                // Navbar Shadow logic
-                window.addEventListener('scroll', () => {
-                    const nav = document.getElementById('navbar');
-                    if (window.scrollY > 50) nav.classList.add('shadow-md', 'dark:bg-brand-dark');
-                    else nav.classList.remove('shadow-md');
+        function openArticleModal(id) {
+            // Validate against allowlist before using the id
+            if (!VALID_ARTICLE_IDS.includes(id)) return;
+            currentOpenArticleId = id;
+            const data = intelligenceData[id];
+            document.getElementById('modal-category').innerText = data.category;
+            document.getElementById('modal-read-time').innerText = data.time;
+            document.getElementById('modal-title').innerText = data.title;
+            // Fix #1: Sanitize before injecting HTML
+            document.getElementById('modal-body').innerHTML = sanitizeHTML(data.content);
+
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.add('flex', 'opacity-100'); }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+                document.getElementById('copy-text').innerText = "Share";
+
+                // FIXED: Clean the URL to remove the ?article parameter without reloading the page
+                const url = new URL(window.location);
+                if (url.searchParams.has('article')) {
+                    url.searchParams.delete('article');
+                    window.history.replaceState({}, '', url);
+                }
+            }, 300);
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeArticleModal();
+        });
+
+        // Fix #7: Use modern Clipboard API instead of deprecated execCommand
+        function copyArticleLink() {
+            const baseUrl = window.location.href.split('?')[0].split('#')[0];
+            const linkText = baseUrl + '?article=' + currentOpenArticleId + '#intelligence';
+            const copyText = document.getElementById('copy-text');
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(linkText).then(() => {
+                    copyText.innerText = "Copied!";
+                    setTimeout(() => { copyText.innerText = "Share"; }, 2000);
+                }).catch(() => {
+                    copyText.innerText = "Failed";
+                    setTimeout(() => { copyText.innerText = "Share"; }, 2000);
                 });
-            </script>
+            } else {
+                // Fallback for older browsers only
+                const dummy = document.createElement('textarea');
+                dummy.value = linkText;
+                dummy.setAttribute('readonly', '');
+                dummy.style.position = 'absolute';
+                dummy.style.left = '-9999px';
+                document.body.appendChild(dummy);
+                dummy.select();
+                try { document.execCommand('copy'); } catch (e) { }
+                document.body.removeChild(dummy);
+                copyText.innerText = "Copied!";
+                setTimeout(() => { copyText.innerText = "Share"; }, 2000);
+            }
+        }
+
+        // Deep Linking Listener — validated against allowlist (Fix #2)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleToOpen = urlParams.get('article');
+
+            // Mobile Article Tap Toggle Logic
+            const articleCards = document.querySelectorAll('.article-card');
+            articleCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // If clicking inside the scrollable content area itself, don't collapse immediately
+                    if (e.target.closest('.custom-scrollbar')) return;
+
+                    const isActive = card.classList.contains('active');
+
+                    // Close all
+                    articleCards.forEach(c => c.classList.remove('active'));
+
+                    // If it wasn't active before, open it
+                    if (!isActive) {
+                        card.classList.add('active');
+                    }
+                });
+            });
+
+            // Only open if the article ID is in the explicit allowlist
+            if (articleToOpen && VALID_ARTICLE_IDS.includes(articleToOpen)) {
+                setTimeout(() => {
+                    openArticleModal(articleToOpen);
+                    const intelligenceSection = document.getElementById('intelligence');
+                    if (intelligenceSection) intelligenceSection.scrollIntoView();
+                }, 500);
+            }
+        });
+
+        // Navbar Shadow logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('shadow-md', 'dark:bg-brand-dark');
+            else nav.classList.remove('shadow-md');
+        });
+    </script>
 </body>
 
 </html>
