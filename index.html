@@ -566,7 +566,8 @@
             { id: 1, title: "Apparel", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" },
             { id: 2, title: "Stationery", image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80" },
             { id: 3, title: "Packaging", image: "https://tse1.mm.bing.net/th/id/OIP.9fwp9I5SuEEiUUVpdC6g0wHaEY?rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 4, title: "Signage", image: "https://festoonsigns.com/wp-content/uploads/2023/06/Hospital-Signage.jpg" }
+            { id: 4, title: "Signage", image: "https://festoonsigns.com/wp-content/uploads/2023/06/Hospital-Signage.jpg" },
+            { id: 5, title: "Bags", image: "https://tse1.mm.bing.net/th/id/OIP.9fwp9I5SuEEiUUVpdC6g0wHaEY?rs=1&pid=ImgDetMain&o=7&rm=3" }
         ];
         const NEW_LAUNCHES = [
             { id: 1, title: "Eco-Friendly Mailers", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80" },
@@ -661,48 +662,49 @@
                                 clipPath: "inset(100% 0% 0% 0%)" // 100% Hidden from the top down!
                             });
 
-                            // STRICT ORDER: Each card takes ~0.85s totally to print and clear
-                            const printStart = 1.0 + (i * 0.85);
+                            // STRICT ORDER: Rapid sequence. The entire process takes ~1.5 seconds.
+                            // Stagger starts every 0.1 seconds.
+                            const printStart = 0.3 + (i * 0.1);
 
                             // Micro-interaction: Printer vibrates & LED flashes during data processing
                             tl.to(printerRef.current, {
                                 y: "+=1.5",
-                                duration: 0.05,
-                                repeat: 11,
+                                duration: 0.03,
+                                repeat: 5,
                                 yoyo: true
                             }, printStart);
-                            tl.to(ledRef.current, { opacity: 1, duration: 0.05, repeat: 11, yoyo: true }, printStart);
+                            tl.to(ledRef.current, { opacity: 1, duration: 0.03, repeat: 5, yoyo: true }, printStart);
 
-                            // STAGE 1: REALISTIC PRINTOUT (Extrusion)
+                            // STAGE 1: REALISTIC PRINTOUT (Extrusion) - Much faster
                             tl.to(card, {
                                 clipPath: "inset(0% 0% 0% 0%)", // Unmask from bottom to top line-by-line
-                                y: startY - 20,                 // Paper slowly pushes upward/forward out of the machine
-                                duration: 0.6,
+                                y: startY - 20,                 // Paper quickly pushes upward/forward
+                                duration: 0.2,
                                 ease: "none"                    // Steady mechanical printer speed
                             }, printStart);
 
-                            // STAGE 2: GLIDE TO POSITION
+                            // STAGE 2: GLIDE TO POSITION - Much faster
                             tl.to(card, {
                                 x: 0,
                                 y: 0,
                                 rotationX: 0,
                                 scale: 1,
-                                duration: 0.9,
+                                duration: 0.4,
                                 ease: "power2.out"
-                            }, printStart + 0.65); // Hop exactly when printing finishes
+                            }, printStart + 0.2); // Hop exactly when printing finishes
 
                             // Natural aerodynamic tilt as paper moves through the air
                             tl.to(card, {
                                 rotationZ: (i % 2 === 0 ? 3 : -3),
-                                duration: 0.4,
+                                duration: 0.2,
                                 ease: "power1.out"
-                            }, printStart + 0.65);
+                            }, printStart + 0.2);
 
                             tl.to(card, {
                                 rotationZ: 0,
-                                duration: 0.5,
+                                duration: 0.2,
                                 ease: "power1.inOut"
-                            }, printStart + 1.05);
+                            }, printStart + 0.4);
                         });
                     });
 
